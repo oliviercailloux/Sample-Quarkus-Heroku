@@ -12,8 +12,8 @@ public class App {
 	private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
 	public static void main(String[] args) throws Exception {
-		Server server = JettyHttpContainerFactory.createServer(URI.create("http://localhost:8080/v1/"),
-				new MyJaxRsApp(), false);
+		Server server = JettyHttpContainerFactory.createServer(URI.create("http://localhost:8080/"), new MyJaxRsApp(),
+				false);
 
 		server.start();
 		server.join();
