@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.y2019.jetty;
+package io.github.oliviercailloux.jetty;
 
 import java.net.URI;
 
