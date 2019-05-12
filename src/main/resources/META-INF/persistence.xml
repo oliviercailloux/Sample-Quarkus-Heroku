@@ -5,17 +5,12 @@
 	<persistence-unit name="PU">
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-<!-- 			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:" /> -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/sample-jetty" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:" />
 			<property name="javax.persistence.jdbc.user" value="sa" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
 
 			<property name="javax.persistence.schema-generation.database.action"
 				value="drop-and-create" />
-			<property name="eclipselink.logging.level" value="FINE" />
-			<property name="eclipselink.logging.logger" value="JavaLogger" />
-			<property name="eclipselink.logging.level.sql" value="FINE" />
-			<property name="eclipselink.logging.parameters" value="true" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 		</properties>
