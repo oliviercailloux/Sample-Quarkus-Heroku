@@ -5,7 +5,8 @@
 	<persistence-unit name="PU">
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:h2:target/h2-2" />
+<!-- 			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:" /> -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/sample-jetty" />
 			<property name="javax.persistence.jdbc.user" value="sa" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
 
