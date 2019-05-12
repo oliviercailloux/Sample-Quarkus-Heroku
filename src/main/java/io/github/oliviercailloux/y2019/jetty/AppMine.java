@@ -11,18 +11,36 @@ import org.jboss.weld.environment.se.Weld;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class App {
+public class AppMine {
 	@SuppressWarnings("unused")
-	private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(AppMine.class);
 	private Server server;
 
 	public static void main(String[] args) throws Exception {
-		new App().proceed();
+		new AppMine().proceed();
 	}
 
 	@SuppressWarnings("unused")
 	public void proceed() throws Exception {
-		LOGGER.info("Hello World!");
+//		LOGGER.info("Hello World!");
+//		ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+//		context.setContextPath("/");
+//
+//		Server jettyServer = new Server(8080);
+//		jettyServer.setHandler(context);
+//
+//		ServletHolder jerseyServlet = context.addServlet(org.glassfish.jersey.servlet.ServletContainer.class, "/*");
+//		jerseyServlet.setInitOrder(0);
+//
+//		// Tells the Jersey Servlet which REST service/class to load.
+//		jerseyServlet.setInitParameter("jersey.config.server.provider.classnames", EntryPoint.class.getCanonicalName());
+//
+//		try {
+//			jettyServer.start();
+//			jettyServer.join();
+//		} finally {
+//			jettyServer.destroy();
+//		}
 //		server = new Server(8080);
 
 		URI baseUri = UriBuilder.fromUri("http://localhost/").port(8080).build();
