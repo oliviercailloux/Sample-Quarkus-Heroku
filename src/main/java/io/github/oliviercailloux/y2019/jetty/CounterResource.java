@@ -1,6 +1,7 @@
 package io.github.oliviercailloux.y2019.jetty;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -15,6 +16,9 @@ public class CounterResource {
 
 	@Inject
 	private ApplicationScopedCounter applicationScoped;
+
+	@Inject
+	EntityManager em;
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
