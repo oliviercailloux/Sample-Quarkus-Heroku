@@ -1,0 +1,4 @@
+= Sample Jetty
+
+Jetty embedded, JAX-RS with Jersey, JPA with Hibernate, CDI with Weld.
+
