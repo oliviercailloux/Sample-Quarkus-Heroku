@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.jetty;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.ws.rs.GET;
@@ -12,6 +13,7 @@ import javax.ws.rs.core.MediaType;
  * https://github.com/eclipse-ee4j/jersey/blob/master/examples/helloworld-cdi2-se/src/main/java/org/glassfish/jersey/examples/helloworld/cdi2se/CounterResource.java
  */
 @Path("counter")
+@RequestScoped
 public class CounterResource {
 
 	@Inject
