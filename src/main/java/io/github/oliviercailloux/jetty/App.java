@@ -20,7 +20,10 @@ public class App {
 	private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
 	public static void main(String[] args) throws Exception {
-		final URI uri = URI.create("http://localhost:8080/");
+		final String envPort = System.getenv("PORT");
+		final int port = envPort != null ? Integer.parseInt(envPort) : 8080;
+		final URI uri = new URI("http", null, "localhost", port, "/", null, null);
+		/** Only the scheme and port of the uri is used when creating the server! */
 		final Server server = JettyHttpContainerFactory.createServer(uri, new MyJaxRsApp(), false);
 
 		final Handler jerseyHandler = server.getHandler();
