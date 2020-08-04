@@ -1,4 +1,7 @@
 = Sample Jetty
 
-Jetty embedded, JAX-RS with Jersey, JPA with Hibernate, CDI with Weld.
+Jetty embedded, JAX-RS with Jersey, JPA with Hibernate, CDI with Weld. Ready to be deployed with Heroku.
 
+To deploy on Heroku, simply follow their https://devcenter.heroku.com/articles/getting-started-with-java[tutorial], replacing their example application with this one: instead of `git clone https://github.com/heroku/java-getting-started`, type `git clone https://github.com/oliviercailloux/sample-jetty.git`.
+
+See this (impressive) application live https://sample-jetty.herokuapp.com[here], and the (equally impressive) counter https://sample-jetty.herokuapp.com/counter[there].
