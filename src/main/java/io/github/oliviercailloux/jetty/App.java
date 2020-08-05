@@ -40,7 +40,7 @@ public class App {
 			config.addCustomizer(new ForwardedRequestCustomizer());
 			@SuppressWarnings("resource")
 			final ServerConnector connector = new ServerConnector(server, new HttpConnectionFactory(config));
-			/** According to the SO (link here above), the port must be set here. */
+			/** According to the SO post (link here above), the port must be set here. */
 			connector.setPort(port);
 			server.setConnectors(new Connector[] { connector });
 		}
