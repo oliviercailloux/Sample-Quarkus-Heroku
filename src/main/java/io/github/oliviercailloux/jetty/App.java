@@ -17,6 +17,7 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
+import org.eclipse.jetty.servlet.ServletHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,12 +52,17 @@ public class App {
 			 */
 			final HandlerList handlers = new HandlerList();
 
-			final ResourceHandler resource_handler = new ResourceHandler();
-			resource_handler.setDirectoriesListed(true);
-			resource_handler.setWelcomeFiles(new String[] { "hello.txt" });
-			resource_handler.setResourceBase("src/main/webapp");
+			final ResourceHandler resourceHandler = new ResourceHandler();
+			resourceHandler.setDirectoriesListed(true);
+			resourceHandler.setWelcomeFiles(new String[] { "hello.txt" });
+			resourceHandler.setResourceBase("src/main/webapp");
 
-			handlers.addHandler(resource_handler);
+			final ServletHandler servletHandler = new ServletHandler();
+			server.setHandler(servletHandler);
+			servletHandler.addServletWithMapping(HelloServlet.class, "/servlet");
+
+			handlers.addHandler(resourceHandler);
+			handlers.addHandler(servletHandler);
 			server.setHandler(handlers);
 			LOGGER.info("Set handler: {}.", server.getHandler());
 		}
@@ -66,9 +72,15 @@ public class App {
 		{
 			final Client client = ClientBuilder.newClient();
 			final URI uri = new URI("http", null, "localhost", port, "/", null, null);
-			final WebTarget target = client.target(uri);
-			final String result = target.request(MediaType.TEXT_PLAIN).get(String.class);
-			verify(result.equals("Hello, world.\n"), result);
+
+			final WebTarget root = client.target(uri);
+			final String resultRoot = root.request(MediaType.TEXT_PLAIN).get(String.class);
+			verify(resultRoot.equals("Hello, world.\n"), resultRoot);
+
+			final WebTarget servlet = client.target(uri).path("servlet");
+			final String resultServlet = servlet.request(MediaType.TEXT_PLAIN).get(String.class);
+			verify(resultServlet.equals("Hello from HelloServlet.\n"), resultServlet);
+
 			client.close();
 		}
 
