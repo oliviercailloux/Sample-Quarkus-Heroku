@@ -9,6 +9,8 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 
+import org.eclipse.jetty.cdi.CdiDecoratingListener;
+import org.eclipse.jetty.cdi.CdiServletContainerInitializer;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.ForwardedRequestCustomizer;
 import org.eclipse.jetty.server.HttpConfiguration;
@@ -18,6 +20,7 @@ import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.jboss.weld.environment.servlet.EnhancedListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,12 +62,18 @@ public class App {
 
 			final ServletContextHandler servletHandler = new ServletContextHandler();
 			servletHandler.setContextPath("/api");
-			servletHandler.addServlet(HelloServlet.class, "/servlet");
+			servletHandler.addServlet(HelloServletInjected.class, "/servlet");
 
 			handlers.addHandler(resourceHandler);
 			handlers.addHandler(servletHandler);
 			server.setHandler(handlers);
 			LOGGER.info("Set handler: {}.", server.getHandler());
+
+			servletHandler.setInitParameter(CdiServletContainerInitializer.CDI_INTEGRATION_ATTRIBUTE,
+					CdiDecoratingListener.MODE);
+			servletHandler.addBean(new ServletContextHandler.Initializer(servletHandler, new EnhancedListener()));
+			servletHandler.addBean(
+					new ServletContextHandler.Initializer(servletHandler, new CdiServletContainerInitializer()));
 		}
 
 		server.start();
@@ -79,7 +88,7 @@ public class App {
 
 			final WebTarget servlet = client.target(uri).path("api").path("servlet");
 			final String resultServlet = servlet.request(MediaType.TEXT_PLAIN).get(String.class);
-			verify(resultServlet.equals("Hello from HelloServlet.\n"), resultServlet);
+			verify(resultServlet.startsWith("Hello from Weld"), resultServlet);
 
 			client.close();
 		}

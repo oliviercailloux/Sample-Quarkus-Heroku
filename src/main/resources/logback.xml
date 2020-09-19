@@ -21,6 +21,8 @@
 		</encoder>
 	</appender>
 
+ <logger name="org.eclipse.jetty" level="INFO"/>
+
 	<root level="DEBUG">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="File" />
