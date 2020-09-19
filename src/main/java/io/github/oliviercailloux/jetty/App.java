@@ -17,7 +17,7 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
-import org.eclipse.jetty.servlet.ServletHandler;
+import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,9 +57,9 @@ public class App {
 			resourceHandler.setWelcomeFiles(new String[] { "hello.txt" });
 			resourceHandler.setResourceBase("src/main/webapp");
 
-			final ServletHandler servletHandler = new ServletHandler();
-			server.setHandler(servletHandler);
-			servletHandler.addServletWithMapping(HelloServlet.class, "/servlet");
+			final ServletContextHandler servletHandler = new ServletContextHandler();
+			servletHandler.setContextPath("/api");
+			servletHandler.addServlet(HelloServlet.class, "/servlet");
 
 			handlers.addHandler(resourceHandler);
 			handlers.addHandler(servletHandler);
@@ -77,7 +77,7 @@ public class App {
 			final String resultRoot = root.request(MediaType.TEXT_PLAIN).get(String.class);
 			verify(resultRoot.equals("Hello, world.\n"), resultRoot);
 
-			final WebTarget servlet = client.target(uri).path("servlet");
+			final WebTarget servlet = client.target(uri).path("api").path("servlet");
 			final String resultServlet = servlet.request(MediaType.TEXT_PLAIN).get(String.class);
 			verify(resultServlet.equals("Hello from HelloServlet.\n"), resultServlet);
 
