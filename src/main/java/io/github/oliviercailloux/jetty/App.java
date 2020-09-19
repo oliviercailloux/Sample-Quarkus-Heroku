@@ -1,5 +1,7 @@
 package io.github.oliviercailloux.jetty;
 
+import static com.google.common.base.Verify.verify;
+
 import java.net.URI;
 
 import javax.ws.rs.client.Client;
@@ -15,8 +17,6 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
-import org.glassfish.jersey.jetty.JettyHttpContainer;
-import org.glassfish.jersey.server.ContainerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,11 +56,7 @@ public class App {
 			resource_handler.setWelcomeFiles(new String[] { "hello.txt" });
 			resource_handler.setResourceBase("src/main/webapp");
 
-			final JettyHttpContainer jerseyHandler = ContainerFactory.createContainer(JettyHttpContainer.class,
-					new MyJaxRsApp());
-
 			handlers.addHandler(resource_handler);
-			handlers.addHandler(jerseyHandler);
 			server.setHandler(handlers);
 			LOGGER.info("Set handler: {}.", server.getHandler());
 		}
@@ -70,10 +66,10 @@ public class App {
 		{
 			final Client client = ClientBuilder.newClient();
 			final URI uri = new URI("http", null, "localhost", port, "/", null, null);
-			final WebTarget target = client.target(uri).path("counter");
-			final int result = target.request(MediaType.TEXT_PLAIN).get(Integer.class);
+			final WebTarget target = client.target(uri);
+			final String result = target.request(MediaType.TEXT_PLAIN).get(String.class);
+			verify(result.equals("Hello, world.\n"), result);
 			client.close();
-			LOGGER.info("Got counter: {}.", result);
 		}
 
 		server.join();
