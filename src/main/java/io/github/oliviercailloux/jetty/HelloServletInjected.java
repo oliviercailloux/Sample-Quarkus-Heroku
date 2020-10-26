@@ -20,6 +20,6 @@ public class HelloServletInjected extends HttpServlet {
 		response.setStatus(HttpServletResponse.SC_OK);
 		response.setContentType("text/plain");
 		response.setCharacterEncoding("utf-8");
-		response.getWriter().println("Hello from " + manager);
+		response.getWriter().println("Hello from " + manager.toString());
 	}
 }
