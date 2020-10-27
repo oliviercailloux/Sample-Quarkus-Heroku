@@ -57,7 +57,7 @@ public class MyJettyServer {
 		jetty.start();
 
 		try {
-			jetty.verifyHello();
+			jetty.verifyItems();
 		} catch (VerifyException e) {
 			jetty.stop();
 			throw e;
@@ -102,7 +102,7 @@ public class MyJettyServer {
 
 		final ServletContextHandler servletHandler = new ServletContextHandler();
 		servletHandler.setContextPath("/api");
-		servletHandler.addServlet(HelloServletInjected.class, "/servlet");
+		servletHandler.addServlet(ItemServlet.class, "/servlet");
 
 		handlers.addHandler(resourceHandler);
 		handlers.addHandler(servletHandler);
@@ -138,7 +138,7 @@ public class MyJettyServer {
 		server.start();
 	}
 
-	public void verifyHello() {
+	public void verifyItems() {
 		final Client client = ClientBuilder.newClient();
 		final UriBuilder uri = UriBuilder.fromUri("http://localhost").port(port);
 
@@ -153,6 +153,10 @@ public class MyJettyServer {
 		}
 
 		final WebTarget servlet = client.target(uri).path("api").path("servlet");
+		final String post1 = servlet.request().post(null, String.class);
+		LOGGER.info("Post 1: {}.", post1);
+		final String post2 = servlet.request().post(null, String.class);
+		LOGGER.info("Post 2: {}.", post2);
 		final String resultServlet = servlet.request(MediaType.TEXT_PLAIN).get(String.class);
 		verify(resultServlet.startsWith("Hello from Weld BeanManager"), resultServlet);
 
