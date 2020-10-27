@@ -4,6 +4,7 @@ import static com.google.common.base.Verify.verify;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -119,10 +120,16 @@ public class MyJettyServer {
 	}
 
 	public void registerUserTransaction() throws NamingException {
-		final com.atomikos.icatch.jta.J2eeUserTransaction userTransaction = new com.atomikos.icatch.jta.J2eeUserTransaction();
+//		final com.atomikos.icatch.jta.J2eeUserTransaction userTransaction = new com.atomikos.icatch.jta.J2eeUserTransaction();
+		final com.atomikos.icatch.jta.UserTransactionManager userTransactionManager = new com.atomikos.icatch.jta.UserTransactionManager();
+		try {
+			userTransactionManager.init();
+		} catch (SystemException e) {
+			throw new IllegalStateException(e);
+		}
 		@SuppressWarnings("unused")
 		final org.eclipse.jetty.plus.jndi.Transaction transactionRegistration = new org.eclipse.jetty.plus.jndi.Transaction(
-				userTransaction);
+				userTransactionManager);
 		org.eclipse.jetty.plus.jndi.Transaction.bindToENC();
 
 	}
