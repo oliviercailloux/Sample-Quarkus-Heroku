@@ -2,6 +2,9 @@ package io.github.oliviercailloux.jetty;
 
 import static com.google.common.base.Verify.verify;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.transaction.UserTransaction;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
@@ -29,6 +32,18 @@ public class MyJettyServer {
 	@SuppressWarnings("unused")
 	private static final Logger LOGGER = LoggerFactory.getLogger(MyJettyServer.class);
 
+	public static UserTransaction getUserTransactionFromJndi() {
+		final UserTransaction ut;
+		final InitialContext ic;
+		try {
+			ic = new InitialContext();
+			ut = (UserTransaction) ic.lookup("java:comp/UserTransaction");
+		} catch (NamingException e) {
+			throw new IllegalStateException(e);
+		}
+		return ut;
+	}
+
 	public static void main(String[] args) throws Exception {
 		final String envPort = System.getenv("PORT");
 		final int port = envPort != null ? Integer.parseInt(envPort) : 8080;
@@ -36,6 +51,8 @@ public class MyJettyServer {
 		final MyJettyServer jetty = new MyJettyServer(port);
 		jetty.setConnectors();
 		jetty.setHandlers();
+		jetty.registerUserTransaction();
+
 		jetty.start();
 
 		try {
@@ -99,6 +116,15 @@ public class MyJettyServer {
 				.addBean(new ServletContextHandler.Initializer(servletHandler, new CdiServletContainerInitializer()));
 		servletHandler.addBean(new ServletContextHandler.Initializer(servletHandler, new EnhancedListener()));
 		LOGGER.info("Initialized servlet handler: {}.", servletHandler);
+	}
+
+	public void registerUserTransaction() throws NamingException {
+		final com.atomikos.icatch.jta.J2eeUserTransaction userTransaction = new com.atomikos.icatch.jta.J2eeUserTransaction();
+		@SuppressWarnings("unused")
+		final org.eclipse.jetty.plus.jndi.Transaction transactionRegistration = new org.eclipse.jetty.plus.jndi.Transaction(
+				userTransaction);
+		org.eclipse.jetty.plus.jndi.Transaction.bindToENC();
+
 	}
 
 	public void start() throws Exception {
