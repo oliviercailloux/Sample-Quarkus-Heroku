@@ -9,18 +9,10 @@ import java.util.Locale;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.transaction.HeuristicMixedException;
-import javax.transaction.HeuristicRollbackException;
-import javax.transaction.NotSupportedException;
-import javax.transaction.RollbackException;
-import javax.transaction.SystemException;
-import javax.transaction.Transactional;
-import javax.transaction.UserTransaction;
 import javax.ws.rs.core.MediaType;
 
 import org.slf4j.Logger;
@@ -36,13 +28,10 @@ public class ItemServlet extends HttpServlet {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ItemServlet.class);
 
 	@Inject
-	EntityManager em;
-
-	@Inject
 	private ServletHelper servletHelper;
 
 	@Inject
-	private QueryHelper helper;
+	private ItemService itemS;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -52,22 +41,12 @@ public class ItemServlet extends HttpServlet {
 		response.setCharacterEncoding(StandardCharsets.UTF_8.name());
 		response.setLocale(Locale.ENGLISH);
 
-		assert (!em.isJoinedToTransaction());
-		final List<Item> allItems = getAll();
-		assert (!em.isJoinedToTransaction());
-		for (Item item : allItems) {
-			assert (em.contains(item));
-		}
+		final List<Item> allItems = itemS.getAll();
 
 		for (Item item : allItems) {
 			response.getWriter().println(item.getName());
 		}
 		response.getWriter().println("End.");
-	}
-
-	@Transactional
-	public List<Item> getAll() {
-		return em.createQuery(helper.selectAll(Item.class)).getResultList();
 	}
 
 	@Override
@@ -79,25 +58,8 @@ public class ItemServlet extends HttpServlet {
 		final ZonedDateTime zonedTimestamp = ZonedDateTime.now(ZoneId.systemDefault());
 		item.setName("MyItem dated " + zonedTimestamp);
 
-		final UserTransaction ut = MyJettyServer.getUserTransactionFromJndi();
-		LOGGER.info("EM joined: {}.", em.isJoinedToTransaction());
-		try {
-			ut.begin();
-		} catch (NotSupportedException | SystemException e) {
-			throw new IllegalStateException(e);
-		}
-		LOGGER.info("Ut began.");
-		LOGGER.info("EM joined: {}.", em.isJoinedToTransaction());
-		em.joinTransaction();
-		LOGGER.info("EM joined.");
-		LOGGER.info("EM joined: {}.", em.isJoinedToTransaction());
-		em.persist(item);
-		try {
-			ut.commit();
-		} catch (SecurityException | IllegalStateException | RollbackException | HeuristicMixedException
-				| HeuristicRollbackException | SystemException e) {
-			throw new IllegalStateException(e);
-		}
+		itemS.persist(item);
+
 		response.sendRedirect(response.encodeRedirectURL(servletHelper.getRedirectURL()));
 	}
 }
