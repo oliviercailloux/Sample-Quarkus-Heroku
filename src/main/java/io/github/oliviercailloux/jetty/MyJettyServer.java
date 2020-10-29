@@ -121,6 +121,10 @@ public class MyJettyServer {
 	}
 
 	public void registerTransactionStuffInJndi() throws NamingException {
+		/**
+		 * Must registrer Narayana in JNDI, according to
+		 * https://groups.google.com/g/narayana-users/c/lnWEBPbFzpw.
+		 */
 		JNDIManager.bindJTAImplementation();
 	}
 
