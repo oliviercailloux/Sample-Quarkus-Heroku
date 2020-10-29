@@ -19,6 +19,10 @@ import javax.ws.rs.core.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.collect.MoreCollectors;
+
+import io.github.oliviercailloux.jetty.ItemServlet;
+
 @RequestScoped
 public class ServletHelper {
 	@SuppressWarnings("unused")
@@ -37,16 +41,18 @@ public class ServletHelper {
 	public String getRedirectURL() {
 		checkNotNull(context);
 		final Map<String, ? extends ServletRegistration> servletRegistrations = context.getServletRegistrations();
-		LOGGER.info("Reg: {}.", servletRegistrations);
-//		final ServletRegistration servletRegistration = context
-//				.getServletRegistration(ItemServlet.class.getCanonicalName());
-		final ServletRegistration servletRegistration = servletRegistrations.values().iterator().next();
+		LOGGER.info("Regs: {}.", servletRegistrations);
+		final String myServletEntry = servletRegistrations.keySet().stream()
+				.filter(s -> s.startsWith(ItemServlet.class.getCanonicalName())).collect(MoreCollectors.onlyElement());
+		final ServletRegistration servletRegistration = context.getServletRegistration(myServletEntry);
 		checkNotNull(servletRegistration);
 		Collection<String> mappings = servletRegistration.getMappings();
 		assert (mappings.size() == 1);
 		final String urlMapping = mappings.iterator().next();
 		assert (urlMapping.charAt(0) == '/');
-		return urlMapping.substring(1);
+		final String relative = urlMapping.substring(1);
+		LOGGER.debug("Redirecting to {}.", relative);
+		return relative;
 	}
 
 }
