@@ -4,7 +4,6 @@ import static com.google.common.base.Verify.verify;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -27,6 +26,7 @@ import org.jboss.weld.environment.servlet.EnhancedListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.arjuna.ats.jta.utils.JNDIManager;
 import com.google.common.base.VerifyException;
 
 public class MyJettyServer {
@@ -38,7 +38,8 @@ public class MyJettyServer {
 		final InitialContext ic;
 		try {
 			ic = new InitialContext();
-			ut = (UserTransaction) ic.lookup("java:comp/UserTransaction");
+//			ut = (UserTransaction) ic.lookup("java:comp/UserTransaction");
+			ut = (UserTransaction) ic.lookup("java:/UserTransaction");
 		} catch (NamingException e) {
 			throw new IllegalStateException(e);
 		}
@@ -52,7 +53,7 @@ public class MyJettyServer {
 		final MyJettyServer jetty = new MyJettyServer(port);
 		jetty.setConnectors();
 		jetty.setHandlers();
-		jetty.registerUserTransaction();
+		jetty.registerTransactionStuffInJndi();
 
 		jetty.start();
 
@@ -119,19 +120,8 @@ public class MyJettyServer {
 		LOGGER.info("Initialized servlet handler: {}.", servletHandler);
 	}
 
-	public void registerUserTransaction() throws NamingException {
-//		final com.atomikos.icatch.jta.J2eeUserTransaction userTransaction = new com.atomikos.icatch.jta.J2eeUserTransaction();
-		final com.atomikos.icatch.jta.UserTransactionManager userTransactionManager = new com.atomikos.icatch.jta.UserTransactionManager();
-		try {
-			userTransactionManager.init();
-		} catch (SystemException e) {
-			throw new IllegalStateException(e);
-		}
-		@SuppressWarnings("unused")
-		final org.eclipse.jetty.plus.jndi.Transaction transactionRegistration = new org.eclipse.jetty.plus.jndi.Transaction(
-				userTransactionManager);
-		org.eclipse.jetty.plus.jndi.Transaction.bindToENC();
-
+	public void registerTransactionStuffInJndi() throws NamingException {
+		JNDIManager.bindJTAImplementation();
 	}
 
 	public void start() throws Exception {
