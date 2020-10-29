@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package io.github.oliviercailloux.jetty;
+package io.github.oliviercailloux.jee;
 
 import javax.transaction.RollbackException;
 import javax.transaction.Status;

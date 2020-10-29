@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.jetty;
+package io.github.oliviercailloux.jee;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;

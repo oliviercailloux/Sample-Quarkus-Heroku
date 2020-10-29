@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.jetty;
+package io.github.oliviercailloux.jee;
 
 import java.util.HashMap;
 import java.util.Map;
