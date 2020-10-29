@@ -148,7 +148,7 @@ public class MyJettyServer {
 		final String post2 = servlet.request().post(null, String.class);
 		LOGGER.info("Post 2: {}.", post2);
 		final String resultServlet = servlet.request(MediaType.TEXT_PLAIN).get(String.class);
-		verify(resultServlet.startsWith("Hello from Weld BeanManager"), resultServlet);
+		verify(resultServlet.matches("MyItem dated.*\nMyItem dated.*\nEnd.\n"), resultServlet);
 
 		client.close();
 	}
