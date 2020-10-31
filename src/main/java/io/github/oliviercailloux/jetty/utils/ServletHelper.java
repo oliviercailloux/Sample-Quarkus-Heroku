@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.javaee_jpa_inject_servlets.utils;
+package io.github.oliviercailloux.jetty.utils;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

@@ -18,8 +18,7 @@ import javax.ws.rs.core.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.github.oliviercailloux.javaee_jpa_inject_servlets.utils.QueryHelper;
-import io.github.oliviercailloux.javaee_jpa_inject_servlets.utils.ServletHelper;
+import io.github.oliviercailloux.jetty.utils.ServletHelper;
 
 @SuppressWarnings("serial")
 @RequestScoped

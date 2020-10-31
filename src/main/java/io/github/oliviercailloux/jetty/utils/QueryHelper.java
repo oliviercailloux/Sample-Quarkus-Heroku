@@ -1,4 +1,4 @@
-package io.github.oliviercailloux.javaee_jpa_inject_servlets.utils;
+package io.github.oliviercailloux.jetty.utils;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

@@ -58,7 +58,12 @@ public class MyJettyServer {
 		final MyJettyServer jetty = new MyJettyServer(port);
 		jetty.setConnectors();
 		jetty.setHandlers();
-		jetty.registerTransactionStuffInJndi();
+
+		/**
+		 * Must registrer Narayana in JNDI, according to
+		 * https://groups.google.com/g/narayana-users/c/lnWEBPbFzpw.
+		 */
+		JNDIManager.bindJTAImplementation();
 
 		jetty.start();
 
@@ -110,38 +115,25 @@ public class MyJettyServer {
 		final ServletContextHandler servletHandler = new ServletContextHandler();
 		servletHandler.setContextPath("/api");
 		servletHandler.addServlet(ItemServlet.class, "/servlet");
-//		servletHandler.addServlet(ServletContainer.class, "/jersey");
 		final ServletHolder jerseyHolder = new ServletHolder(ServletContainer.class);
 		final String appName = MyJaxRsApp.class.getCanonicalName();
-		LOGGER.info("Using {}.", appName);
 		jerseyHolder.setInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, appName);
 //		jerseyHolder.setInitParameter(ServletProperties.PROVIDER_WEB_APP, "true");
 		servletHandler.addServlet(jerseyHolder, "/*");
-//		final JettyHttpContainer jerseyHandler = ContainerFactory.createContainer(JettyHttpContainer.class,
-//				new MyJaxRsApp());
 
 		handlers.addHandler(resourceHandler);
-//		handlers.addHandler(jerseyHandler);
 		handlers.addHandler(servletHandler);
 		server.setHandler(handlers);
 		LOGGER.debug("Set handler: {}.", server.getHandler());
 
 		/**
-		 * Using the approach recommended here:
+		 * Using the approach recommended at
 		 * https://github.com/eclipse/jetty.project/issues/5326#issuecomment-699506325.
 		 */
 		servletHandler
 				.addBean(new ServletContextHandler.Initializer(servletHandler, new CdiServletContainerInitializer()));
 		servletHandler.addBean(new ServletContextHandler.Initializer(servletHandler, new EnhancedListener()));
 		LOGGER.info("Initialized servlet handler: {}.", servletHandler);
-	}
-
-	public void registerTransactionStuffInJndi() throws NamingException {
-		/**
-		 * Must registrer Narayana in JNDI, according to
-		 * https://groups.google.com/g/narayana-users/c/lnWEBPbFzpw.
-		 */
-		JNDIManager.bindJTAImplementation();
 	}
 
 	public void start() throws Exception {

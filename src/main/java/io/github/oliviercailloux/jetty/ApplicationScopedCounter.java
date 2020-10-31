@@ -19,6 +19,10 @@ public class ApplicationScopedCounter {
 	private final AtomicInteger counter = new AtomicInteger();
 
 	public int getNumber() {
+		return counter.get();
+	}
+
+	public int incrementNumber() {
 		return counter.incrementAndGet();
 	}
 
