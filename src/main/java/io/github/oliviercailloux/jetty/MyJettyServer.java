@@ -5,6 +5,8 @@ import static com.google.common.base.Verify.verify;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.transaction.UserTransaction;
+import javax.ws.rs.InternalServerErrorException;
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
@@ -22,6 +24,9 @@ import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+import org.glassfish.jersey.servlet.ServletContainer;
+import org.glassfish.jersey.servlet.ServletProperties;
 import org.jboss.weld.environment.servlet.EnhancedListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,8 +63,9 @@ public class MyJettyServer {
 		jetty.start();
 
 		try {
-			jetty.verifyItems();
-		} catch (VerifyException e) {
+//			jetty.verifyItems();
+			jetty.verifyResources();
+		} catch (VerifyException | InternalServerErrorException | NotFoundException e) {
 			jetty.stop();
 			throw e;
 		}
@@ -104,8 +110,18 @@ public class MyJettyServer {
 		final ServletContextHandler servletHandler = new ServletContextHandler();
 		servletHandler.setContextPath("/api");
 		servletHandler.addServlet(ItemServlet.class, "/servlet");
+//		servletHandler.addServlet(ServletContainer.class, "/jersey");
+		final ServletHolder jerseyHolder = new ServletHolder(ServletContainer.class);
+		final String appName = MyJaxRsApp.class.getCanonicalName();
+		LOGGER.info("Using {}.", appName);
+//		jerseyHolder.setInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, appName);
+		jerseyHolder.setInitParameter(ServletProperties.PROVIDER_WEB_APP, "true");
+		servletHandler.addServlet(jerseyHolder, "/jersey");
+//		final JettyHttpContainer jerseyHandler = ContainerFactory.createContainer(JettyHttpContainer.class,
+//				new MyJaxRsApp());
 
 		handlers.addHandler(resourceHandler);
+//		handlers.addHandler(jerseyHandler);
 		handlers.addHandler(servletHandler);
 		server.setHandler(handlers);
 		LOGGER.debug("Set handler: {}.", server.getHandler());
@@ -155,6 +171,16 @@ public class MyJettyServer {
 		verify(resultServlet.matches("MyItem dated.*\nMyItem dated.*\nEnd.\n"), resultServlet);
 
 		client.close();
+	}
+
+	public void verifyResources() {
+		final Client client = ClientBuilder.newClient();
+		final UriBuilder uri = UriBuilder.fromUri("http://localhost").port(port);
+		final WebTarget target = client.target(uri).path("api").path("jersey").path("counter");
+		final int result = target.request(MediaType.TEXT_PLAIN).get(Integer.class);
+		client.close();
+		LOGGER.info("Got counter: {}.", result);
+
 	}
 
 	public void join() throws InterruptedException {
