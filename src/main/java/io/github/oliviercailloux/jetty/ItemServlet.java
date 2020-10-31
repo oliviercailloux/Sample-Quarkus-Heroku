@@ -59,6 +59,6 @@ public class ItemServlet extends HttpServlet {
 
 		itemS.persist(item);
 
-		response.sendRedirect(response.encodeRedirectURL(servletHelper.getRedirectURL()));
+		response.sendRedirect(response.encodeRedirectURL(servletHelper.getRedirectURI().toString()));
 	}
 }

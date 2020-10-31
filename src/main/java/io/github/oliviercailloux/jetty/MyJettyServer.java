@@ -67,7 +67,8 @@ public class MyJettyServer {
 		jetty.start();
 
 		try {
-			jetty.verifyItems();
+//			jetty.verifyItems();
+			jetty.verifyItemResources();
 			jetty.verifyResources();
 		} catch (VerifyException | InternalServerErrorException | NotFoundException e) {
 			jetty.stop();
@@ -160,6 +161,31 @@ public class MyJettyServer {
 		LOGGER.info("Post 2: {}.", post2);
 		final String resultServlet = servlet.request(MediaType.TEXT_PLAIN).get(String.class);
 		verify(resultServlet.matches("MyItem dated.*\nMyItem dated.*\nEnd.\n"), resultServlet);
+
+		client.close();
+	}
+
+	public void verifyItemResources() {
+		final Client client = ClientBuilder.newClient();
+		final UriBuilder uri = UriBuilder.fromUri("http://localhost").port(port);
+
+		final WebTarget root = client.target(uri);
+		final String resultRoot = root.request(MediaType.TEXT_PLAIN).get(String.class);
+		verify(resultRoot.equals("Hello, world.\n"), resultRoot);
+
+		final WebTarget nonExistent = root.path("nonExistent");
+		try (Response resultNonExistent = nonExistent.request().get()) {
+			verify(resultNonExistent.getStatus() == Response.Status.NOT_FOUND.getStatusCode(),
+					String.valueOf(resultNonExistent.getStatus()));
+		}
+
+		final WebTarget servlet = client.target(uri).path("api").path("item");
+		final String post1 = servlet.request().post(null, String.class);
+		LOGGER.info("Post 1: {}.", post1);
+		final String post2 = servlet.request().post(null, String.class);
+		LOGGER.info("Post 2: {}.", post2);
+		final String resultServlet = servlet.request(MediaType.TEXT_PLAIN).get(String.class);
+		verify(resultServlet.matches("MyItem dated.*\nMyItem dated.*"), resultServlet);
 
 		client.close();
 	}

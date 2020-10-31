@@ -22,12 +22,9 @@ public class ItemService {
 
 	@Inject
 	private QueryHelper helper;
-	@Inject
-	private ApplicationScopedCounter applicationScoped;
 
 	@Transactional
 	public List<Item> getAll() {
-		LOGGER.info("Counter: {}.", applicationScoped.getNumber());
 		return em.createQuery(helper.selectAll(Item.class)).getResultList();
 	}
 

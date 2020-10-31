@@ -3,6 +3,7 @@ package io.github.oliviercailloux.jetty.utils;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.io.IOException;
+import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Locale;
@@ -38,7 +39,7 @@ public class ServletHelper {
 		return resp.getOutputStream();
 	}
 
-	public String getRedirectURL() {
+	public URI getRedirectURI() {
 		checkNotNull(context);
 		final Map<String, ? extends ServletRegistration> servletRegistrations = context.getServletRegistrations();
 		LOGGER.info("Regs: {}.", servletRegistrations);
@@ -52,7 +53,7 @@ public class ServletHelper {
 		assert (urlMapping.charAt(0) == '/');
 		final String relative = urlMapping.substring(1);
 		LOGGER.debug("Redirecting to {}.", relative);
-		return relative;
+		return URI.create(relative);
 	}
 
 }
