@@ -1,8 +1,6 @@
 package io.github.oliviercailloux.jetty;
 
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -16,15 +14,9 @@ import javax.ws.rs.core.MediaType;
 @RequestScoped
 public class CounterResource {
 
-	@Inject
-	private ApplicationScopedCounter applicationScoped;
-
-	@Inject
-	EntityManager em;
-
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public int getAppCounter() {
-		return applicationScoped.getNumber();
+		return 0;
 	}
 }

@@ -14,7 +14,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
-import org.eclipse.jetty.cdi.CdiServletContainerInitializer;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.ForwardedRequestCustomizer;
 import org.eclipse.jetty.server.HttpConfiguration;
@@ -27,7 +26,6 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.glassfish.jersey.servlet.ServletProperties;
-import org.jboss.weld.environment.servlet.EnhancedListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -114,9 +112,9 @@ public class MyJettyServer {
 		final ServletHolder jerseyHolder = new ServletHolder(ServletContainer.class);
 		final String appName = MyJaxRsApp.class.getCanonicalName();
 		LOGGER.info("Using {}.", appName);
-//		jerseyHolder.setInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, appName);
-		jerseyHolder.setInitParameter(ServletProperties.PROVIDER_WEB_APP, "true");
-		servletHandler.addServlet(jerseyHolder, "/jersey");
+		jerseyHolder.setInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, appName);
+//		jerseyHolder.setInitParameter(ServletProperties.PROVIDER_WEB_APP, "true");
+		servletHandler.addServlet(jerseyHolder, "/*");
 //		final JettyHttpContainer jerseyHandler = ContainerFactory.createContainer(JettyHttpContainer.class,
 //				new MyJaxRsApp());
 
@@ -130,9 +128,9 @@ public class MyJettyServer {
 		 * Using the approach recommended here:
 		 * https://github.com/eclipse/jetty.project/issues/5326#issuecomment-699506325.
 		 */
-		servletHandler
-				.addBean(new ServletContextHandler.Initializer(servletHandler, new CdiServletContainerInitializer()));
-		servletHandler.addBean(new ServletContextHandler.Initializer(servletHandler, new EnhancedListener()));
+//		servletHandler
+//				.addBean(new ServletContextHandler.Initializer(servletHandler, new CdiServletContainerInitializer()));
+//		servletHandler.addBean(new ServletContextHandler.Initializer(servletHandler, new EnhancedListener()));
 		LOGGER.info("Initialized servlet handler: {}.", servletHandler);
 	}
 
@@ -176,7 +174,7 @@ public class MyJettyServer {
 	public void verifyResources() {
 		final Client client = ClientBuilder.newClient();
 		final UriBuilder uri = UriBuilder.fromUri("http://localhost").port(port);
-		final WebTarget target = client.target(uri).path("api").path("jersey").path("counter");
+		final WebTarget target = client.target(uri).path("api").path("counter");
 		final int result = target.request(MediaType.TEXT_PLAIN).get(Integer.class);
 		client.close();
 		LOGGER.info("Got counter: {}.", result);
