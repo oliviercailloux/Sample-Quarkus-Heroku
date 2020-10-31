@@ -43,7 +43,6 @@ public class MyJettyServer {
 		final InitialContext ic;
 		try {
 			ic = new InitialContext();
-//			ut = (UserTransaction) ic.lookup("java:comp/UserTransaction");
 			ut = (UserTransaction) ic.lookup("java:/UserTransaction");
 		} catch (NamingException e) {
 			throw new IllegalStateException(e);
@@ -172,7 +171,6 @@ public class MyJettyServer {
 		final int result = target.request(MediaType.TEXT_PLAIN).get(Integer.class);
 		client.close();
 		LOGGER.info("Got counter: {}.", result);
-
 	}
 
 	public void join() throws InterruptedException {
