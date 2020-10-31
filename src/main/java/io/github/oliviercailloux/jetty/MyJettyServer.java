@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
+import org.eclipse.jetty.cdi.CdiServletContainerInitializer;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.ForwardedRequestCustomizer;
 import org.eclipse.jetty.server.HttpConfiguration;
@@ -26,6 +27,7 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.glassfish.jersey.servlet.ServletProperties;
+import org.jboss.weld.environment.servlet.EnhancedListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,7 +63,7 @@ public class MyJettyServer {
 		jetty.start();
 
 		try {
-//			jetty.verifyItems();
+			jetty.verifyItems();
 			jetty.verifyResources();
 		} catch (VerifyException | InternalServerErrorException | NotFoundException e) {
 			jetty.stop();
@@ -128,9 +130,9 @@ public class MyJettyServer {
 		 * Using the approach recommended here:
 		 * https://github.com/eclipse/jetty.project/issues/5326#issuecomment-699506325.
 		 */
-//		servletHandler
-//				.addBean(new ServletContextHandler.Initializer(servletHandler, new CdiServletContainerInitializer()));
-//		servletHandler.addBean(new ServletContextHandler.Initializer(servletHandler, new EnhancedListener()));
+		servletHandler
+				.addBean(new ServletContextHandler.Initializer(servletHandler, new CdiServletContainerInitializer()));
+		servletHandler.addBean(new ServletContextHandler.Initializer(servletHandler, new EnhancedListener()));
 		LOGGER.info("Initialized servlet handler: {}.", servletHandler);
 	}
 
