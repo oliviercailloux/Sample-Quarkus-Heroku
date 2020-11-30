@@ -10,8 +10,6 @@ import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.github.oliviercailloux.jetty.utils.QueryHelper;
-
 @RequestScoped
 public class ItemService {
 	@SuppressWarnings("unused")

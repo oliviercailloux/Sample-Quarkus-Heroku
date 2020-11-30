@@ -2,9 +2,6 @@ package io.github.oliviercailloux.jetty;
 
 import static com.google.common.base.Verify.verify;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.transaction.UserTransaction;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.client.Client;
@@ -38,18 +35,6 @@ public class MyJettyServer {
 	@SuppressWarnings("unused")
 	private static final Logger LOGGER = LoggerFactory.getLogger(MyJettyServer.class);
 
-	public static UserTransaction getUserTransactionFromJndi() {
-		final UserTransaction ut;
-		final InitialContext ic;
-		try {
-			ic = new InitialContext();
-			ut = (UserTransaction) ic.lookup("java:/UserTransaction");
-		} catch (NamingException e) {
-			throw new IllegalStateException(e);
-		}
-		return ut;
-	}
-
 	public static void main(String[] args) throws Exception {
 		final String envPort = System.getenv("PORT");
 		final int port = envPort != null ? Integer.parseInt(envPort) : 8080;
@@ -67,9 +52,7 @@ public class MyJettyServer {
 		jetty.start();
 
 		try {
-//			jetty.verifyItems();
-			jetty.verifyItemResources();
-			jetty.verifyResources();
+			jetty.verifyResponses();
 		} catch (VerifyException | InternalServerErrorException | NotFoundException e) {
 			jetty.stop();
 			throw e;
@@ -114,7 +97,6 @@ public class MyJettyServer {
 
 		final ServletContextHandler servletHandler = new ServletContextHandler();
 		servletHandler.setContextPath("/api");
-		servletHandler.addServlet(ItemServlet.class, "/servlet");
 		final ServletHolder jerseyHolder = new ServletHolder(ServletContainer.class);
 		final String appName = MyJaxRsApp.class.getCanonicalName();
 		jerseyHolder.setInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, appName);
@@ -140,32 +122,7 @@ public class MyJettyServer {
 		server.start();
 	}
 
-	public void verifyItems() {
-		final Client client = ClientBuilder.newClient();
-		final UriBuilder uri = UriBuilder.fromUri("http://localhost").port(port);
-
-		final WebTarget root = client.target(uri);
-		final String resultRoot = root.request(MediaType.TEXT_PLAIN).get(String.class);
-		verify(resultRoot.equals("Hello, world.\n"), resultRoot);
-
-		final WebTarget nonExistent = root.path("nonExistent");
-		try (Response resultNonExistent = nonExistent.request().get()) {
-			verify(resultNonExistent.getStatus() == Response.Status.NOT_FOUND.getStatusCode(),
-					String.valueOf(resultNonExistent.getStatus()));
-		}
-
-		final WebTarget servlet = client.target(uri).path("api").path("servlet");
-		final String post1 = servlet.request().post(null, String.class);
-		LOGGER.info("Post 1: {}.", post1);
-		final String post2 = servlet.request().post(null, String.class);
-		LOGGER.info("Post 2: {}.", post2);
-		final String resultServlet = servlet.request(MediaType.TEXT_PLAIN).get(String.class);
-		verify(resultServlet.matches("MyItem dated.*\nMyItem dated.*\nEnd.\n"), resultServlet);
-
-		client.close();
-	}
-
-	public void verifyItemResources() {
+	public void verifyResponses() {
 		final Client client = ClientBuilder.newClient();
 		final UriBuilder uri = UriBuilder.fromUri("http://localhost").port(port);
 
@@ -188,15 +145,6 @@ public class MyJettyServer {
 		verify(resultServlet.matches("MyItem dated.*\nMyItem dated.*"), resultServlet);
 
 		client.close();
-	}
-
-	public void verifyResources() {
-		final Client client = ClientBuilder.newClient();
-		final UriBuilder uri = UriBuilder.fromUri("http://localhost").port(port);
-		final WebTarget target = client.target(uri).path("api").path("counter");
-		final int result = target.request(MediaType.TEXT_PLAIN).get(Integer.class);
-		client.close();
-		LOGGER.info("Got counter: {}.", result);
 	}
 
 	public void join() throws InterruptedException {

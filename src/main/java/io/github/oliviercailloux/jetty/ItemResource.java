@@ -11,13 +11,13 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import io.github.oliviercailloux.jetty.utils.ServletHelper;
 
 @Path("item")
 @RequestScoped
@@ -25,8 +25,8 @@ public class ItemResource {
 	@SuppressWarnings("unused")
 	private static final Logger LOGGER = LoggerFactory.getLogger(ItemResource.class);
 
-	@Inject
-	private ServletHelper servletHelper;
+	@Context
+	private UriInfo uriInfo;
 
 	@Inject
 	private ItemService itemS;
@@ -48,6 +48,6 @@ public class ItemResource {
 
 		itemS.persist(item);
 
-		return Response.seeOther(servletHelper.getRedirectURI()).build();
+		return Response.seeOther(uriInfo.getAbsolutePath()).build();
 	}
 }

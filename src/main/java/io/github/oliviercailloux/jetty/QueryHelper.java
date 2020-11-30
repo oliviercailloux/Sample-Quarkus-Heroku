@@ -1,13 +1,13 @@
-package io.github.oliviercailloux.jetty.utils;
+package io.github.oliviercailloux.jetty;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-@RequestScoped
+@ApplicationScoped
 public class QueryHelper {
 	@Inject
 	private EntityManagerFactory emf;
