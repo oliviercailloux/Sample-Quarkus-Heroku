@@ -1,0 +1,651 @@
+00:45:45.955 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @2192ms to org.eclipse.jetty.util.log.Slf4jLog
+00:45:46.527 [main] DEBUG i.g.o.jetty.MyJettyServer - Set handler: HandlerList@7ce3cb8e{STOPPED}.
+00:45:46.536 [main] INFO  i.g.o.jetty.MyJettyServer - Initialized servlet handler: o.e.j.s.ServletContextHandler@703580bf{/api,null,STOPPED}.
+00:45:46.930 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+00:45:46.938 [main] DEBUG com.arjuna.ats.jta - Setting up node identifiers '[1]' for which recovery will be performed
+00:45:47.119 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.33.v20201020; built: 2020-10-20T23:39:24.803Z; git: 1be68755656cef678b79a2ef1c2ebbca99e25420; jvm 11.0.9+11-post-Debian-1deb10u1
+00:45:47.242 [main] INFO  o.e.j.c.CdiServletContainerInitializer - CdiSpiDecorator enabled in ServletContext@o.e.j.s.ServletContextHandler@703580bf{/api,null,STARTING}
+00:45:47.256 [main] INFO  o.j.w.environment.servletWeldServlet - WELD-ENV-001008: Initialize Weld using ServletContainerInitializer
+00:45:47.326 [main] INFO  org.jboss.weld.Version - WELD-000900: 3.1.5 (SP1)
+00:45:48.053 [main] INFO  org.jboss.weld.Bootstrap - WELD-ENV-000020: Using jandex for bean discovery
+00:45:48.137 [main] DEBUG o.j.w.e.d.d.DefaultBeanArchiveScanner - Resolved bean archive reference: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes for URL: file:/home/olivier/Local/ownCloud%20My%20Core/Professions/Enseignement/Samples/sample-jetty/target/classes/META-INF/beans.xml
+00:45:48.139 [main] DEBUG org.jboss.weld.Bootstrap - WELD-ENV-000032: Processing bean archive reference: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes
+00:45:48.140 [main] DEBUG o.j.w.e.d.d.FileSystemBeanArchiveHandler - Handle path: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes
+00:45:48.149 [main] DEBUG o.j.w.e.d.d.FileSystemBeanArchiveHandler - Handle directory: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes
+00:45:48.149 [main] DEBUG o.j.w.e.d.d.FileSystemBeanArchiveHandler - Handle directory: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes/META-INF
+00:45:48.150 [main] DEBUG o.j.w.e.d.d.FileSystemBeanArchiveHandler - Handle directory: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes/META-INF/services
+00:45:48.150 [main] DEBUG o.j.w.e.d.d.FileSystemBeanArchiveHandler - Handle directory: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes/META-INF/maven
+00:45:48.150 [main] DEBUG o.j.w.e.d.d.FileSystemBeanArchiveHandler - Handle directory: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes/META-INF/maven/io.github.oliviercailloux
+00:45:48.150 [main] DEBUG o.j.w.e.d.d.FileSystemBeanArchiveHandler - Handle directory: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes/META-INF/maven/io.github.oliviercailloux/sample-jetty
+00:45:48.152 [main] DEBUG o.j.w.e.d.d.FileSystemBeanArchiveHandler - Handle directory: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes/io
+00:45:48.160 [main] DEBUG o.j.w.e.d.d.FileSystemBeanArchiveHandler - Handle directory: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes/io/github
+00:45:48.160 [main] DEBUG o.j.w.e.d.d.FileSystemBeanArchiveHandler - Handle directory: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes/io/github/oliviercailloux
+00:45:48.161 [main] DEBUG o.j.w.e.d.d.FileSystemBeanArchiveHandler - Handle directory: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes/io/github/oliviercailloux/jee
+00:45:48.198 [main] DEBUG o.j.w.e.d.d.FileSystemBeanArchiveHandler - Handle directory: /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes/io/github/oliviercailloux/jetty
+00:45:48.225 [main] DEBUG org.jboss.weld.Bootstrap - WELD-ENV-000039: Bean archive reference /home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes handled by org.jboss.weld.environment.deployment.discovery.jandex.JandexFileSystemBeanArchiveHandler@2dc9b0f5
+00:45:48.310 [main] DEBUG org.jboss.weld.Bootstrap - WELD-ENV-000024: Archive isolation enabled - creating multiple isolated bean archives if needed
+00:45:48.321 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap 
+00:45:48.321 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap > startContainer 
+00:45:48.328 [main] DEBUG org.jboss.weld.Bootstrap - Installing additional service org.jboss.weld.transaction.spi.TransactionServices (class io.github.oliviercailloux.jee.CDITransactionServices)
+00:45:48.355 [main] DEBUG org.jboss.weld.Configuration - WELD-001902: Following configuration was detected and applied: {org.jboss.weld.serialization.beanIdentifierIndexOptimization=false}
+00:45:48.359 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap > startContainer > initServices 
+00:45:48.412 [main] DEBUG org.jboss.weld.Bootstrap - Using Weld modules: [weld-web]
+00:45:48.428 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000124: Using 2 threads for bootstrap
+00:45:48.432 [main] DEBUG org.jboss.weld.Bootstrap - Using instantiator: org.jboss.weld.bean.proxy.DefaultProxyInstantiator
+00:45:48.470 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap > startContainer > initServices (110 ms)
+00:45:48.489 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap > startContainer > builtinContexts 
+00:45:48.645 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%deployment%ApplicationContext
+00:45:48.667 [main] DEBUG org.jboss.weld.Reflection - WELD-000601: interface javax.inject.Singleton is missing @Target. Weld will use this annotation, however this may make the application unportable.
+00:45:48.668 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%deployment%SingletonContext
+00:45:48.672 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%deployment%BoundSessionContext
+00:45:48.679 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%deployment%BoundConversationContext
+00:45:48.685 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%deployment%BoundRequestContext
+00:45:48.686 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%deployment%RequestContext
+00:45:48.690 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%deployment%DependentContext
+00:45:48.691 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%deployment%HttpSessionContext
+00:45:48.701 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%deployment%HttpSessionDestructionContext
+00:45:48.701 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%deployment%HttpConversationContext
+00:45:48.702 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%deployment%HttpRequestContext
+00:45:48.702 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap > startContainer > builtinContexts (212 ms)
+00:45:48.703 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap > startContainer > readDeploymentStructure 
+00:45:48.758 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Built-in Bean [javax.enterprise.inject.spi.BeanManager] with qualifiers [@Default]
+00:45:48.767 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Built-in Bean [org.jboss.weld.manager.BeanManagerImpl] with qualifiers [@Default]
+00:45:48.774 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap > startContainer > readDeploymentStructure (70 ms)
+00:45:48.775 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap > startContainer (453 ms)
+00:45:48.776 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap > startInitialization 
+00:45:48.785 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Built-in Bean [javax.enterprise.inject.spi.BeanManager] with qualifiers [@Default]
+00:45:48.787 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Built-in Bean [org.jboss.weld.manager.BeanManagerImpl] with qualifiers [@Default]
+00:45:48.901 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Extension [class org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes] with qualifiers [@Default]; jar:file:/home/olivier/.m2/repository/org/glassfish/jersey/ext/cdi/jersey-cdi1x/2.32/jersey-cdi1x-2.32.jar!/META-INF/services/javax.enterprise.inject.spi.Extension@2[org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes@12bfd80d]
+00:45:48.910 [main] INFO  org.jboss.weld.Event - WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+00:45:48.917 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000168: Extension bean deployed: Extension [class org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes] with qualifiers [@Default]; jar:file:/home/olivier/.m2/repository/org/glassfish/jersey/ext/cdi/jersey-cdi1x/2.32/jersey-cdi1x-2.32.jar!/META-INF/services/javax.enterprise.inject.spi.Extension@2[org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes@12bfd80d]
+00:45:48.937 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Extension [class com.arjuna.ats.jta.cdi.TransactionExtension] with qualifiers [@Default]; jar:file:/home/olivier/.m2/repository/org/jboss/narayana/jta/cdi/5.10.6.Final/cdi-5.10.6.Final.jar!/META-INF/services/javax.enterprise.inject.spi.Extension@1[com.arjuna.ats.jta.cdi.TransactionExtension@4bff1903]
+00:45:48.938 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000168: Extension bean deployed: Extension [class com.arjuna.ats.jta.cdi.TransactionExtension] with qualifiers [@Default]; jar:file:/home/olivier/.m2/repository/org/jboss/narayana/jta/cdi/5.10.6.Final/cdi-5.10.6.Final.jar!/META-INF/services/javax.enterprise.inject.spi.Extension@1[com.arjuna.ats.jta.cdi.TransactionExtension@4bff1903]
+00:45:49.004 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Extension [class org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider] with qualifiers [@Default]; jar:file:/home/olivier/.m2/repository/org/glassfish/jersey/ext/cdi/jersey-cdi1x/2.32/jersey-cdi1x-2.32.jar!/META-INF/services/javax.enterprise.inject.spi.Extension@1[org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider@4de41af9]
+00:45:49.004 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000168: Extension bean deployed: Extension [class org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider] with qualifiers [@Default]; jar:file:/home/olivier/.m2/repository/org/glassfish/jersey/ext/cdi/jersey-cdi1x/2.32/jersey-cdi1x-2.32.jar!/META-INF/services/javax.enterprise.inject.spi.Extension@1[org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider@4de41af9]
+00:45:49.011 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000168: Extension bean deployed: Extension [class com.arjuna.ats.jta.cdi.TransactionExtension] with qualifiers [@Default]; jar:file:/home/olivier/.m2/repository/org/jboss/narayana/jta/narayana-jta/5.10.6.Final/narayana-jta-5.10.6.Final.jar!/META-INF/services/javax.enterprise.inject.spi.Extension@1[com.arjuna.ats.jta.cdi.TransactionExtension@7e38a7fe]
+00:45:49.023 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Extension [class org.jboss.weld.bootstrap.WeldExtension] with qualifiers [@Default]; n/a
+00:45:49.023 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000168: Extension bean deployed: Extension [class org.jboss.weld.bootstrap.WeldExtension] with qualifiers [@Default]; n/a
+00:45:49.030 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Built-in Bean [javax.enterprise.inject.spi.BeanManager] with qualifiers [@Default]
+00:45:49.036 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Built-in Bean [org.jboss.weld.manager.BeanManagerImpl] with qualifiers [@Default]
+00:45:49.044 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap > startInitialization > BeforeBeanDiscovery 
+00:45:49.115 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000162: BeforeBeanDiscovery.addAnnotatedType() called by org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider@4de41af9 for [BackedAnnotatedType] public static @ApplicationScoped class org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider$JaxRsParamProducer
+00:45:49.137 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000162: BeforeBeanDiscovery.addAnnotatedType() called by org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider@4de41af9 for [BackedAnnotatedType] public  class org.glassfish.jersey.ext.cdi1x.internal.ProcessJAXRSAnnotatedTypes
+00:45:49.174 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000162: BeforeBeanDiscovery.addAnnotatedType() called by org.jboss.weld.bootstrap.WeldExtension@34a75079 for [BackedAnnotatedType] public @Vetoed @Interceptor @ActivateRequestContext @Priority class org.jboss.weld.contexts.activator.ActivateRequestContextInterceptor
+00:45:49.193 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000162: BeforeBeanDiscovery.addAnnotatedType() called by org.jboss.weld.bootstrap.WeldExtension@34a75079 for [BackedAnnotatedType] public @Vetoed @Interceptor @ActivateRequestContext @Priority class org.jboss.weld.contexts.activator.CdiRequestContextActivatorInterceptor
+00:45:49.198 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000159: BeforeBeanDiscovery.addScope() called by com.arjuna.ats.jta.cdi.TransactionExtension@4bff1903 for interface javax.transaction.TransactionScoped
+00:45:49.239 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000162: BeforeBeanDiscovery.addAnnotatedType() called by com.arjuna.ats.jta.cdi.TransactionExtension@4bff1903 for [BackedAnnotatedType] public @Interceptor @Transactional @Priority class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorMandatory
+00:45:49.254 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000162: BeforeBeanDiscovery.addAnnotatedType() called by com.arjuna.ats.jta.cdi.TransactionExtension@4bff1903 for [BackedAnnotatedType] public @Interceptor @Transactional @Priority class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorNever
+00:45:49.263 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000162: BeforeBeanDiscovery.addAnnotatedType() called by com.arjuna.ats.jta.cdi.TransactionExtension@4bff1903 for [BackedAnnotatedType] public @Interceptor @Transactional @Priority class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorNotSupported
+00:45:49.275 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000162: BeforeBeanDiscovery.addAnnotatedType() called by com.arjuna.ats.jta.cdi.TransactionExtension@4bff1903 for [BackedAnnotatedType] public @Interceptor @Transactional @Priority class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequired
+00:45:49.284 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000162: BeforeBeanDiscovery.addAnnotatedType() called by com.arjuna.ats.jta.cdi.TransactionExtension@4bff1903 for [BackedAnnotatedType] public @Interceptor @Transactional @Priority class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequiresNew
+00:45:49.300 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000162: BeforeBeanDiscovery.addAnnotatedType() called by com.arjuna.ats.jta.cdi.TransactionExtension@4bff1903 for [BackedAnnotatedType] public @Interceptor @Transactional @Priority class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorSupports
+00:45:49.326 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000162: BeforeBeanDiscovery.addAnnotatedType() called by com.arjuna.ats.jta.cdi.TransactionExtension@4bff1903 for [BackedAnnotatedType] @ApplicationScoped class com.arjuna.ats.jta.cdi.NarayanaTransactionSynchronizationRegistry
+00:45:49.358 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000162: BeforeBeanDiscovery.addAnnotatedType() called by com.arjuna.ats.jta.cdi.TransactionExtension@4bff1903 for [BackedAnnotatedType] @ApplicationScoped class com.arjuna.ats.jta.cdi.NarayanaTransactionManager
+00:45:49.359 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap > startInitialization > BeforeBeanDiscovery (314 ms)
+00:45:49.525 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap > startInitialization > AfterTypeDiscovery 
+00:45:49.528 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap > startInitialization > AfterTypeDiscovery (1 ms)
+00:45:49.540 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000103: Enabled alternatives for Weld BeanManager for org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses [bean count=6]: (empty collection)
+00:45:49.543 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000104: Enabled decorator types for Weld BeanManager for org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses [bean count=6]: (empty collection)
+00:45:49.544 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000105: Enabled interceptor types for Weld BeanManager for org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses [bean count=6]: 
+  - class org.jboss.weld.contexts.activator.ActivateRequestContextInterceptor,
+  - class org.jboss.weld.contexts.activator.CdiRequestContextActivatorInterceptor,
+  - class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorMandatory,
+  - class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorNever,
+  - class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorNotSupported,
+  - class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequired,
+  - class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequiresNew,
+  - class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorSupports
+00:45:49.573 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000103: Enabled alternatives for Weld BeanManager for /api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes [bean count=2]: (empty collection)
+00:45:49.574 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000104: Enabled decorator types for Weld BeanManager for /api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes [bean count=2]: (empty collection)
+00:45:49.574 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000105: Enabled interceptor types for Weld BeanManager for /api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes [bean count=2]: 
+  - class org.jboss.weld.contexts.activator.ActivateRequestContextInterceptor,
+  - class org.jboss.weld.contexts.activator.CdiRequestContextActivatorInterceptor,
+  - class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorMandatory,
+  - class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorNever,
+  - class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorNotSupported,
+  - class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequired,
+  - class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequiresNew,
+  - class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorSupports
+00:45:49.574 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap > startInitialization (798 ms)
+00:45:49.589 [main] DEBUG org.jboss.weld.Bootstrap - WELD-ENV-000030: Cannot load class using the ResourceLoader: org.apache.catalina.connector.Request
+00:45:49.591 [main] INFO  o.j.weld.environment.servletJetty - WELD-ENV-001213: Jetty CDI SPI support detected, CDI injection will be available in Listeners, Servlets and Filters.
+00:45:49.595 [main] DEBUG org.jboss.weld.Bootstrap - WELD-ENV-000030: Cannot load class using the ResourceLoader: javax.servlet.jsp.JspFactory
+00:45:49.602 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap > deployBeans 
+00:45:49.892 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000151: ProcessInjectionTarget.setInjectionTarget() called by org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider@4de41af9: InjectionTarget for Managed Bean [class org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider$JaxRsParamProducer] with qualifiers [@Any @Default] replaced by org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider$5@ca27722
+00:45:50.197 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000151: ProcessInjectionTarget.setInjectionTarget() called by org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider@4de41af9: InjectionTarget for Managed Bean [class io.github.oliviercailloux.jetty.ItemResource] with qualifiers [@Any @Default] replaced by org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider$6@54e81b21
+00:45:50.213 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000107: Interceptor: Interceptor [class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorNever intercepts @Transactional]
+00:45:50.214 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000107: Interceptor: Interceptor [class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequired intercepts @Transactional]
+00:45:50.220 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000107: Interceptor: Interceptor [class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorNotSupported intercepts @Transactional]
+00:45:50.220 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000107: Interceptor: Interceptor [class org.jboss.weld.contexts.activator.ActivateRequestContextInterceptor intercepts @ActivateRequestContext]
+00:45:50.228 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000107: Interceptor: Interceptor [class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorMandatory intercepts @Transactional]
+00:45:50.230 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000107: Interceptor: Interceptor [class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequiresNew intercepts @Transactional]
+00:45:50.230 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000107: Interceptor: Interceptor [class com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorSupports intercepts @Transactional]
+00:45:50.231 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000107: Interceptor: Interceptor [class org.jboss.weld.contexts.activator.CdiRequestContextActivatorInterceptor intercepts @ActivateRequestContext]
+00:45:50.263 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%DependentContext
+00:45:50.263 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.Bean] with qualifiers [@Decorated]
+00:45:50.263 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%BoundConversationContext
+00:45:50.263 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%HttpSessionDestructionContext
+00:45:50.263 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Managed Bean [class com.arjuna.ats.jta.cdi.NarayanaTransactionSynchronizationRegistry] with qualifiers [@Any @Default]
+00:45:50.264 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%HttpServletRequest
+00:45:50.264 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.Bean] with qualifiers [@Intercepted]
+00:45:50.264 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%HttpConversationContext
+00:45:50.264 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%HttpSession
+00:45:50.264 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.Bean] with qualifiers [@Default]
+00:45:50.264 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%ServletContext
+00:45:50.270 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Managed Bean [class org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider$JaxRsParamProducer] with qualifiers [@Any @Default]
+00:45:50.270 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%BoundSessionContext
+00:45:50.270 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%ApplicationContext
+00:45:50.274 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Producer Method [String] with qualifiers [@JaxRsParamQualifier @Any] declared as [[UnbackedAnnotatedMethod] @Produces @JaxRsParamQualifier public org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider$JaxRsParamProducer.getParameterValue(InjectionPoint, BeanManager)]
+00:45:50.274 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.Decorator] with qualifiers [@Default]
+00:45:50.274 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%RequestContext
+00:45:50.275 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.event.Event] with qualifiers [@Default]
+00:45:50.286 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.InjectionPoint] with qualifiers [@Default]
+00:45:50.287 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.InterceptionFactory] with qualifiers [@Default]
+00:45:50.287 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%Conversation
+00:45:50.290 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%RequestContextController
+00:45:50.290 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.Interceptor] with qualifiers [@Default]
+00:45:50.290 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.Instance] with qualifiers [@Default]
+00:45:50.290 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%HttpRequestContext
+00:45:50.290 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%HttpSessionContext
+00:45:50.290 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.EventMetadata] with qualifiers [@Default]
+00:45:50.290 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%BoundRequestContext
+00:45:50.290 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Managed Bean [class com.arjuna.ats.jta.cdi.NarayanaTransactionManager] with qualifiers [@Any @Default]
+00:45:50.291 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%org.jboss.weld.environment.deployment.WeldDeployment.additionalClasses%SingletonContext
+00:45:50.295 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.Bean] with qualifiers [@Default]
+00:45:50.306 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%BoundRequestContext
+00:45:50.306 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%RequestContextController
+00:45:50.306 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%ApplicationContext
+00:45:50.306 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%ServletContext
+00:45:50.306 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.InterceptionFactory] with qualifiers [@Default]
+00:45:50.306 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.Bean] with qualifiers [@Intercepted]
+00:45:50.306 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%RequestContext
+00:45:50.306 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%HttpSessionContext
+00:45:50.306 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%HttpServletRequest
+00:45:50.306 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%DependentContext
+00:45:50.306 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%HttpSessionDestructionContext
+00:45:50.307 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.EventMetadata] with qualifiers [@Default]
+00:45:50.313 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%SingletonContext
+00:45:50.313 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%BoundConversationContext
+00:45:50.313 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Producer Method [EntityManagerFactory] with qualifiers [@Any @Default] declared as [[BackedAnnotatedMethod] @Produces @ApplicationScoped public io.github.oliviercailloux.jee.EntityManagerFactoryProducer.produceEntityManagerFactory()]
+00:45:50.313 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Managed Bean [class io.github.oliviercailloux.jetty.ItemResource] with qualifiers [@Any @Default]
+00:45:50.313 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Managed Bean [class io.github.oliviercailloux.jetty.QueryHelper] with qualifiers [@Any @Default]
+00:45:50.313 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.Instance] with qualifiers [@Default]
+00:45:50.313 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Managed Bean [class io.github.oliviercailloux.jee.EntityManagerFactoryProducer] with qualifiers [@Any @Default]
+00:45:50.313 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%HttpRequestContext
+00:45:50.314 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Producer Method [EntityManager] with qualifiers [@Any @Default] declared as [[BackedAnnotatedMethod] @Produces @RequestScoped public io.github.oliviercailloux.jee.EntityManagerProducer.produceEntityManager()]
+00:45:50.320 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%HttpSession
+00:45:50.320 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.InjectionPoint] with qualifiers [@Default]
+00:45:50.320 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%BoundSessionContext
+00:45:50.320 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.event.Event] with qualifiers [@Default]
+00:45:50.320 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%Conversation
+00:45:50.320 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.Bean] with qualifiers [@Decorated]
+00:45:50.320 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Managed Bean [class io.github.oliviercailloux.jee.EntityManagerProducer] with qualifiers [@Any @Default]
+00:45:50.320 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Managed Bean [class io.github.oliviercailloux.jetty.ItemService] with qualifiers [@Any @Default]
+00:45:50.320 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.Interceptor] with qualifiers [@Default]
+00:45:50.320 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: WELD%AbstractBuiltInBean%/api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes%HttpConversationContext
+00:45:50.321 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000106: Bean: Implicit Bean [javax.enterprise.inject.spi.Decorator] with qualifiers [@Default]
+00:45:50.321 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap > deployBeans > AfterBeanDiscovery 
+00:45:50.345 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000156: AfterBeanDiscovery.addContext() called by com.arjuna.ats.jta.cdi.TransactionExtension@4bff1903 for com.arjuna.ats.jta.cdi.TransactionContext@420745d7
+00:45:50.347 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap > deployBeans > AfterBeanDiscovery (24 ms)
+00:45:50.582 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap > deployBeans (980 ms)
+00:45:50.583 [main] DEBUG org.jboss.weld.Bootstrap - WELD-000100: Weld initialized. Validating beans
+00:45:50.583 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap > validateBeans 
+00:45:50.593 [weld-worker-1] DEBUG org.jboss.weld.Reflection - WELD-000620: interface javax.enterprise.inject.Intercepted is not declared @Target(METHOD, FIELD, PARAMETER, TYPE). Weld will use this annotation, however this may make the application unportable.
+00:45:50.597 [weld-worker-1] DEBUG org.jboss.weld.Reflection - WELD-000620: interface javax.enterprise.inject.Decorated is not declared @Target(METHOD, FIELD, PARAMETER, TYPE). Weld will use this annotation, however this may make the application unportable.
+00:45:50.641 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap > validateBeans > AfterDeploymentValidation 
+00:45:50.643 [main] DEBUG org.jboss.weld.Bootstrap - EE modules: [BeanDeploymentModule [id=/api, web=true, managers=org.jboss.weld.util.collections.Iterables$$Lambda$127/0x00000008401bf440@4aa3d36]]
+00:45:50.643 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap > validateBeans > AfterDeploymentValidation (2 ms)
+00:45:50.643 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap > validateBeans (60 ms)
+00:45:50.643 [main] DEBUG org.jboss.weld.BootstrapTracker - START bootstrap > endInitialization 
+00:45:50.658 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap > endInitialization (13 ms)
+00:45:50.659 [main] DEBUG org.jboss.weld.BootstrapTracker -   END bootstrap (2338 ms)
+00:45:50.720 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@703580bf{/api,null,AVAILABLE}
+00:45:50.769 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@240237d2{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+00:45:50.769 [main] INFO  org.eclipse.jetty.server.Server - Started @7028ms
+00:45:53.120 [qtp660879561-12] DEBUG com.arjuna.ats.arjuna - com.arjuna.ats.arjuna.recovery.ActionStatusService starting
+00:45:53.155 [qtp660879561-12] DEBUG com.arjuna.ats.arjuna - TransactionStatusManagerItem host: {0} port: {1}
+00:45:53.637 [qtp660879561-12] INFO  com.arjuna.ats.arjuna - ARJUNA012170: TransactionStatusManager started on port 38517 and host 127.0.0.1 with service com.arjuna.ats.arjuna.recovery.ActionStatusService
+00:45:54.251 [qtp660879561-12] DEBUG o.h.jpa.HibernatePersistenceProvider - Located and parsed 1 persistence units; checking each
+00:45:54.251 [qtp660879561-12] DEBUG o.h.jpa.HibernatePersistenceProvider - Checking persistence-unit [name=PU, explicit-provider=null] against incoming persistence unit name [PU]
+00:45:54.252 [qtp660879561-12] DEBUG o.h.jpa.boot.spi.ProviderChecker - No PersistenceProvider explicitly requested, assuming Hibernate
+00:45:54.272 [qtp660879561-12] DEBUG o.h.jpa.internal.util.LogHelper - PersistenceUnitInfo [
+	name: PU
+	persistence provider classname: null
+	classloader: null
+	excludeUnlistedClasses: false
+	JTA datasource: null
+	Non JTA datasource: null
+	Transaction type: JTA
+	PU root URL: file:/home/olivier/Local/ownCloud%20My%20Core/Professions/Enseignement/Samples/sample-jetty/target/classes
+	Shared Cache Mode: null
+	Validation Mode: null
+	Jar files URLs []
+	Managed classes names []
+	Mapping files names []
+	Properties [
+		javax.persistence.bean.manager: null
+		hibernate.c3p0.timeout: 180
+		javax.persistence.jdbc.user: sa
+		hibernate.c3p0.max_statements: 50
+		hibernate.c3p0.max_size: 20
+		hibernate.dialect: org.hibernate.dialect.H2Dialect
+		javax.persistence.jdbc.url: jdbc:h2:mem:
+		javax.persistence.jdbc.driver: org.h2.Driver
+		hibernate.c3p0.min_size: 5
+		javax.persistence.schema-generation.database.action: drop-and-create]
+00:45:54.282 [qtp660879561-12] DEBUG o.h.i.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+00:45:54.296 [qtp660879561-12] DEBUG o.h.i.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.secure.spi.JaccIntegrator].
+00:45:54.302 [qtp660879561-12] DEBUG o.h.i.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+00:45:54.403 [qtp660879561-12] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.24.Final
+00:45:54.408 [qtp660879561-12] DEBUG org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+00:45:54.560 [qtp660879561-12] DEBUG o.h.service.spi.ServiceBinding - Overriding existing service binding [org.hibernate.secure.spi.JaccService]
+00:45:54.645 [qtp660879561-12] DEBUG o.h.c.i.RegionFactoryInitiator - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+00:45:54.646 [qtp660879561-12] DEBUG o.h.c.i.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+00:45:54.675 [qtp660879561-12] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+00:45:54.778 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@56c70bcb
+00:45:54.778 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@56c70bcb
+00:45:54.778 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@56c70bcb
+00:45:54.779 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@1c9a7309
+00:45:54.783 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.TrueFalseType@138f41b7
+00:45:54.784 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.YesNoType@213a04eb
+00:45:54.791 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@598b1f54
+00:45:54.792 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@598b1f54
+00:45:54.832 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@598b1f54
+00:45:54.833 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration character -> org.hibernate.type.CharacterType@5bcebc87
+00:45:54.833 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration char -> org.hibernate.type.CharacterType@5bcebc87
+00:45:54.834 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@5bcebc87
+00:45:54.836 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@4ffc0c4b
+00:45:54.836 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@4ffc0c4b
+00:45:54.836 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@4ffc0c4b
+00:45:54.838 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.IntegerType@3d092388
+00:45:54.838 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration int -> org.hibernate.type.IntegerType@3d092388
+00:45:54.838 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@3d092388
+00:45:54.845 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@345af79d
+00:45:54.845 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@345af79d
+00:45:54.847 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.LongType@345af79d
+00:45:54.848 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@3315d412
+00:45:54.848 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@3315d412
+00:45:54.849 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@3315d412
+00:45:54.850 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@57018a54
+00:45:54.850 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@57018a54
+00:45:54.850 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@57018a54
+00:45:54.851 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@7b734511
+00:45:54.860 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@7b734511
+00:45:54.862 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@952aa10
+00:45:54.862 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@952aa10
+00:45:54.863 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration string -> org.hibernate.type.StringType@592bc4d
+00:45:54.863 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.StringType@592bc4d
+00:45:54.866 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@6f9b0781
+00:45:54.873 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@5a247cfe
+00:45:54.874 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration url -> org.hibernate.type.UrlType@35252cba
+00:45:54.874 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.UrlType@35252cba
+00:45:54.878 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration Duration -> org.hibernate.type.DurationType@17ffc38f
+00:45:54.878 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Duration -> org.hibernate.type.DurationType@17ffc38f
+00:45:54.883 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration Instant -> org.hibernate.type.InstantType@201ef8c8
+00:45:54.884 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Instant -> org.hibernate.type.InstantType@201ef8c8
+00:45:54.885 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@28cbe76a
+00:45:54.885 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@28cbe76a
+00:45:54.887 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration LocalDate -> org.hibernate.type.LocalDateType@2b52514d
+00:45:54.887 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@2b52514d
+00:45:54.903 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@3bcda907
+00:45:54.903 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@3bcda907
+00:45:54.906 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@6b421041
+00:45:54.906 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@6b421041
+00:45:54.907 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@6432cc4b
+00:45:54.908 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@6432cc4b
+00:45:54.914 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@5e4f62f9
+00:45:54.914 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@5e4f62f9
+00:45:54.920 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration date -> org.hibernate.type.DateType@1785441
+00:45:54.921 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.DateType@1785441
+00:45:54.968 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration time -> org.hibernate.type.TimeType@97a4e96
+00:45:54.969 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@97a4e96
+00:45:54.970 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.TimestampType@492a476a
+00:45:54.971 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@492a476a
+00:45:54.971 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@492a476a
+00:45:54.973 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@36e55e2f
+00:45:54.974 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.CalendarType@2acac889
+00:45:54.975 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@2acac889
+00:45:54.975 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@2acac889
+00:45:54.976 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@22873a37
+00:45:54.977 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration calendar_time -> org.hibernate.type.CalendarTimeType@7be9452e
+00:45:54.978 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.LocaleType@38dd8289
+00:45:54.979 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@38dd8289
+00:45:54.981 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.CurrencyType@383716c9
+00:45:54.981 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@383716c9
+00:45:54.982 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.TimeZoneType@63b5e09d
+00:45:54.982 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@63b5e09d
+00:45:54.983 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration class -> org.hibernate.type.ClassType@7dfeaa76
+00:45:54.984 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@7dfeaa76
+00:45:54.985 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@115d19b6
+00:45:54.985 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@115d19b6
+00:45:54.986 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@3a8d528c
+00:45:54.987 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BinaryType@5c7d94b0
+00:45:54.988 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BinaryType@5c7d94b0
+00:45:54.988 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BinaryType@5c7d94b0
+00:45:54.989 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@655bd0ba
+00:45:54.989 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@655bd0ba
+00:45:54.989 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@655bd0ba
+00:45:54.991 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration row_version -> org.hibernate.type.RowVersionType@72cbc44d
+00:45:54.991 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration image -> org.hibernate.type.ImageType@43a6b662
+00:45:54.993 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.CharArrayType@63a768aa
+00:45:54.993 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.CharArrayType@63a768aa
+00:45:54.993 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.CharArrayType@63a768aa
+00:45:54.994 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@1ccf85d8
+00:45:54.994 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@1ccf85d8
+00:45:54.994 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@1ccf85d8
+00:45:54.995 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration text -> org.hibernate.type.TextType@3dd1a27e
+00:45:54.996 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration ntext -> org.hibernate.type.NTextType@afc4c33
+00:45:54.998 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BlobType@3564be2b
+00:45:54.998 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@3564be2b
+00:45:55.008 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@6951998a
+00:45:55.010 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.ClobType@5a56c9d8
+00:45:55.010 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@5a56c9d8
+00:45:55.012 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration nclob -> org.hibernate.type.NClobType@3a65822d
+00:45:55.012 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@3a65822d
+00:45:55.033 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@3ba0fc01
+00:45:55.034 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@68dff981
+00:45:55.035 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.SerializableType@7ccfb9ca
+00:45:55.044 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration object -> org.hibernate.type.ObjectType@32f8ef72
+00:45:55.044 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@32f8ef72
+00:45:55.044 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@512672e7
+00:45:55.045 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@7612a4c3
+00:45:55.045 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@305e580d
+00:45:55.045 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@107dd77c
+00:45:55.045 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@72ae3ede
+00:45:55.045 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@11f9a8f4
+00:45:55.045 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@53a514f6
+00:45:55.045 [qtp660879561-12] DEBUG org.hibernate.type.BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@2d1defc9
+00:45:55.081 [qtp660879561-12] DEBUG o.h.b.internal.BootstrapContextImpl - Injecting ScanEnvironment [org.hibernate.jpa.boot.internal.StandardJpaScanEnvironmentImpl@7b1eed3e] into BootstrapContext; was [null]
+00:45:55.082 [qtp660879561-12] DEBUG o.h.b.internal.BootstrapContextImpl - Injecting ScanOptions [org.hibernate.boot.archive.scan.internal.StandardScanOptions@3c43e21e] into BootstrapContext; was [org.hibernate.boot.archive.scan.internal.StandardScanOptions@2e79cf48]
+00:45:55.584 [qtp660879561-12] DEBUG o.h.b.internal.BootstrapContextImpl - Injecting JPA temp ClassLoader [null] into BootstrapContext; was [null]
+00:45:55.585 [qtp660879561-12] DEBUG o.h.b.internal.ClassLoaderAccessImpl - ClassLoaderAccessImpl#injectTempClassLoader(null) [was null]
+00:45:55.602 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+00:45:55.603 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+00:45:55.603 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+00:45:55.603 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+00:45:55.604 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+00:45:55.617 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+00:45:55.618 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+00:45:55.619 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+00:45:55.620 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
+00:45:55.621 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+00:45:55.622 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+00:45:55.622 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
+00:45:55.622 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+00:45:55.624 [qtp660879561-12] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+00:45:55.635 [qtp660879561-12] INFO  o.h.c.i.C3P0ConnectionProvider - HHH010002: C3P0 using driver: org.h2.Driver at URL: jdbc:h2:mem:
+00:45:55.641 [qtp660879561-12] INFO  o.h.c.i.C3P0ConnectionProvider - HHH10001001: Connection properties: {user=sa}
+00:45:55.641 [qtp660879561-12] INFO  o.h.c.i.C3P0ConnectionProvider - HHH10001003: Autocommit mode: false
+00:45:55.694 [MLog-Init-Reporter] INFO  com.mchange.v2.log.MLog - MLog clients using slf4j logging.
+00:45:55.721 [qtp660879561-12] DEBUG com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+00:45:55.722 [qtp660879561-12] DEBUG com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+00:45:55.722 [qtp660879561-12] DEBUG com.mchange.v2.cfg.MConfig - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+00:45:55.722 [qtp660879561-12] DEBUG com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+00:45:55.724 [MLog-Init-Reporter] DEBUG com.mchange.v2.log.MLog - Reading VM config for path list /com/mchange/v2/log/default-mchange-log.properties, /mchange-commons.properties, /c3p0.properties, hocon:/reference,/application,/c3p0,/, /mchange-log.properties, /
+00:45:55.724 [MLog-Init-Reporter] DEBUG com.mchange.v2.log.MLog - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+00:45:55.724 [MLog-Init-Reporter] DEBUG com.mchange.v2.log.MLog - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+00:45:55.724 [MLog-Init-Reporter] DEBUG com.mchange.v2.log.MLog - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+00:45:55.724 [MLog-Init-Reporter] DEBUG com.mchange.v2.log.MLog - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+00:45:55.981 [qtp660879561-12] INFO  com.mchange.v2.c3p0.C3P0Registry - Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+00:45:56.010 [qtp660879561-12] DEBUG c.m.v.c.m.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hge13eae67qf59o1nm2i|7e44982,name=1hge13eae67qf59o1nm2i|7e44982 registered.
+00:45:56.048 [qtp660879561-12] DEBUG c.m.v.c.m.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hge13eae67qf59o1nm2i|7e44982,name=1hge13eae67qf59o1nm2i|7e44982 unregistered, in order to be reregistered after update.
+00:45:56.048 [qtp660879561-12] DEBUG c.m.v.c.m.DynamicPooledDataSourceManagerMBean - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hge13eae67qf59o1nm2i|7e44982,name=1hge13eae67qf59o1nm2i|7e44982 registered.
+00:45:56.061 [qtp660879561-12] INFO  o.h.c.i.C3P0ConnectionProvider - HHH10001007: JDBC isolation level: <unknown>
+00:45:56.097 [qtp660879561-12] INFO  c.m.v.c.i.AbstractPoolBackedDataSource - Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@e936c1f2 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@f32b9d31 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 1hge13eae67qf59o1nm2i|2d7b5b0, idleConnectionTestPeriod -> 0, initialPoolSize -> 5, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 180, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@7ed0c483 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 1hge13eae67qf59o1nm2i|22c226c4, jdbcUrl -> jdbc:h2:mem:, properties -> {user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 1hge13eae67qf59o1nm2i|7e44982, numHelperThreads -> 3 ]
+00:45:56.153 [qtp660879561-12] DEBUG com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-commons.properties' could not be found. Skipping.
+00:45:56.153 [qtp660879561-12] DEBUG com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/mchange-log.properties' could not be found. Skipping.
+00:45:56.153 [qtp660879561-12] DEBUG com.mchange.v2.cfg.MConfig - The configuration file for resource identifier '/c3p0.properties' could not be found. Skipping.
+00:45:56.153 [qtp660879561-12] DEBUG com.mchange.v2.cfg.MConfig - The configuration file for resource identifier 'hocon:/reference,/application,/c3p0,/' could not be found. Skipping.
+00:45:56.166 [qtp660879561-12] DEBUG c.m.v.resourcepool.BasicResourcePool - com.mchange.v2.resourcepool.BasicResourcePool@3bf6928f config: [start -> 5; min -> 5; max -> 20; inc -> 3; num_acq_attempts -> 30; acq_attempt_delay -> 1000; check_idle_resources_delay -> 0; max_resource_age -> 0; max_idle_time -> 180000; excess_max_idle_time -> 0; destroy_unreturned_resc_time -> 0; expiration_enforcement_delay -> 45000; break_on_acquisition_failure -> false; debug_store_checkout_exceptions -> false; force_synchronous_checkins -> false]
+00:45:56.166 [qtp660879561-12] DEBUG c.m.v.c.i.C3P0PooledConnectionPoolManager - Created new pool for auth, username (masked): 'sa******'.
+00:45:56.171 [qtp660879561-12] DEBUG c.m.v.resourcepool.BasicResourcePool - acquire test -- pool size: 0; target_pool_size: 5; desired target? 1
+00:45:56.171 [qtp660879561-12] DEBUG c.m.v.resourcepool.BasicResourcePool - awaitAvailable(): [unknown]
+00:45:56.604 [qtp660879561-12] DEBUG o.h.e.j.e.i.JdbcEnvironmentInitiator - Database ->
+       name : H2
+    version : 1.4.200 (2019-10-14)
+      major : 1
+      minor : 4
+00:45:56.613 [qtp660879561-12] DEBUG o.h.e.j.e.i.JdbcEnvironmentInitiator - Driver ->
+       name : H2 JDBC Driver
+    version : 1.4.200 (2019-10-14)
+      major : 1
+      minor : 4
+00:45:56.619 [qtp660879561-12] DEBUG o.h.e.j.e.i.JdbcEnvironmentInitiator - JDBC version : 4.1
+00:45:56.653 [qtp660879561-12] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+00:45:56.730 [qtp660879561-12] DEBUG o.h.e.j.e.s.IdentifierHelperBuilder - JDBC driver metadata reported database stores quoted identifiers in neither upper, lower nor mixed case
+00:45:56.777 [qtp660879561-12] DEBUG o.h.boot.model.relational.Namespace - Created database namespace [logicalName=Name{catalog=null, schema=null}, physicalName=Name{catalog=null, schema=null}]
+00:45:56.789 [qtp660879561-12] DEBUG o.h.type.spi.TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@a972584] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@5d81bb36]
+00:45:56.822 [qtp660879561-12] DEBUG o.h.c.a.reflection.XMLContext - Adding XML overriding information for listeners: []
+00:45:56.845 [qtp660879561-12] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [io.github.oliviercailloux.jetty.Item] is safe
+00:45:56.845 [qtp660879561-12] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : io.github.oliviercailloux.jetty.Item
+00:45:56.860 [qtp660879561-12] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: io.github.oliviercailloux.jetty.Item
+00:45:56.884 [qtp660879561-12] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+00:45:56.889 [qtp660879561-12] DEBUG o.h.cfg.annotations.EntityBinder - Import with entity name Item
+00:45:56.905 [qtp660879561-12] DEBUG o.h.cfg.annotations.EntityBinder - Bind entity io.github.oliviercailloux.jetty.Item on table Item
+00:45:56.925 [qtp660879561-12] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Item), mappingColumn=id, insertable=true, updatable=true, unique=false}
+00:45:56.928 [qtp660879561-12] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [io.github.oliviercailloux.jetty.Item] is safe
+00:45:56.929 [qtp660879561-12] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : io.github.oliviercailloux.jetty.Item
+00:45:56.929 [qtp660879561-12] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [int] is safe
+00:45:56.930 [qtp660879561-12] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : int
+00:45:56.930 [qtp660879561-12] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property id with lazy=false
+00:45:56.932 [qtp660879561-12] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [io.github.oliviercailloux.jetty.Item:id]
+00:45:56.934 [qtp660879561-12] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for id
+00:45:56.938 [qtp660879561-12] DEBUG o.h.cfg.annotations.PropertyBinder - Building property id
+00:45:56.943 [qtp660879561-12] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id)]), id, org.hibernate.id.enhanced.SequenceStyleGenerator, , ...)
+00:45:56.944 [qtp660879561-12] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Item), mappingColumn=name, insertable=true, updatable=true, unique=false}
+00:45:56.945 [qtp660879561-12] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property name with lazy=false
+00:45:56.945 [qtp660879561-12] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [io.github.oliviercailloux.jetty.Item:name]
+00:45:56.947 [qtp660879561-12] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for name
+00:45:56.948 [qtp660879561-12] DEBUG o.h.cfg.annotations.PropertyBinder - Building property name
+00:45:56.952 [qtp660879561-12] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for id
+00:45:56.953 [qtp660879561-12] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for name
+00:45:56.955 [qtp660879561-12] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [item]
+00:45:57.054 [qtp660879561-12] DEBUG o.h.internal.SessionFactoryImpl - Building session factory
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - SessionFactory name : null
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Automatic flush during beforeCompletion(): enabled
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Automatic session close at end of transaction: disabled
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Statistics: disabled
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Deleted entity synthetic identifier rollback: disabled
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Default entity-mode: pojo
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Allow initialization of lazy state outside session : disabled
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Using BatchFetchStyle : LEGACY
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Default batch fetch size: -1
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Maximum outer join fetch depth: null
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Default null ordering: NONE
+00:45:57.056 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Order SQL updates by primary key: disabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Order SQL inserts for batching: disabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - multi-tenancy strategy : NONE
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - JTA Track by Thread: enabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Query language substitutions: {}
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Named query checking : enabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Second-level cache: disabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Second-level query cache: disabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Second-level query cache factory: null
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Second-level cache region prefix: null
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Optimize second-level cache for minimal puts: disabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Structured second-level cache entries: disabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Second-level cache direct-reference entries: disabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Automatic eviction of collection cache: disabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - JDBC batch size: 15
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - JDBC batch updates for versioned data: enabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Scrollable result sets: enabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Wrap result sets: disabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - JDBC3 getGeneratedKeys(): enabled
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - JDBC result set fetch size: null
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Connection release mode: AFTER_STATEMENT
+00:45:57.057 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - Generate SQL with comments: disabled
+00:45:57.058 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - JPA compliance - query : disabled
+00:45:57.058 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - JPA compliance - closed-handling : disabled
+00:45:57.058 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - JPA compliance - lists : disabled
+00:45:57.058 [qtp660879561-12] DEBUG org.hibernate.cfg.Settings - JPA compliance - transactions : disabled
+00:45:57.132 [qtp660879561-12] DEBUG o.h.r.b.c.i.CdiBeanContainerImmediateAccessImpl - Standard access requested to CDI BeanManager : Weld BeanManager for /api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes [bean count=35]
+00:45:57.147 [qtp660879561-12] DEBUG o.h.internal.SessionFactoryImpl - Session factory constructed with filter configurations : {}
+00:45:57.147 [qtp660879561-12] DEBUG o.h.internal.SessionFactoryImpl - Instantiating session factory with properties: {sun.desktop=gnome, awt.toolkit=sun.awt.X11.XToolkit, java.specification.version=11, sun.cpu.isalist=, sun.jnu.encoding=UTF-8, hibernate.dialect=org.hibernate.dialect.H2Dialect, hibernate.c3p0.min_size=5, java.class.path=/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes:/home/olivier/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/home/olivier/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/home/olivier/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/home/olivier/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/olivier/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/olivier/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/home/olivier/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/home/olivier/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/home/olivier/.m2/repository/org/eclipse/jetty/jetty-server/9.4.33.v20201020/jetty-server-9.4.33.v20201020.jar:/home/olivier/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/home/olivier/.m2/repository/org/eclipse/jetty/jetty-http/9.4.33.v20201020/jetty-http-9.4.33.v20201020.jar:/home/olivier/.m2/repository/org/eclipse/jetty/jetty-io/9.4.33.v20201020/jetty-io-9.4.33.v20201020.jar:/home/olivier/.m2/repository/org/eclipse/jetty/jetty-servlet/9.4.33.v20201020/jetty-servlet-9.4.33.v20201020.jar:/home/olivier/.m2/repository/org/eclipse/jetty/jetty-security/9.4.33.v20201020/jetty-security-9.4.33.v20201020.jar:/home/olivier/.m2/repository/org/eclipse/jetty/jetty-cdi/9.4.33.v20201020/jetty-cdi-9.4.33.v20201020.jar:/home/olivier/.m2/repository/org/eclipse/jetty/jetty-util/9.4.33.v20201020/jetty-util-9.4.33.v20201020.jar:/home/olivier/.m2/repository/org/eclipse/jetty/jetty-webapp/9.4.33.v20201020/jetty-webapp-9.4.33.v20201020.jar:/home/olivier/.m2/repository/org/eclipse/jetty/jetty-xml/9.4.33.v20201020/jetty-xml-9.4.33.v20201020.jar:/home/olivier/.m2/repository/org/eclipse/jetty/jetty-annotations/9.4.33.v20201020/jetty-annotations-9.4.33.v20201020.jar:/home/olivier/.m2/repository/org/eclipse/jetty/jetty-plus/9.4.33.v20201020/jetty-plus-9.4.33.v20201020.jar:/home/olivier/.m2/repository/org/eclipse/jetty/jetty-jndi/9.4.33.v20201020/jetty-jndi-9.4.33.v20201020.jar:/home/olivier/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/home/olivier/.m2/repository/org/ow2/asm/asm/9.0/asm-9.0.jar:/home/olivier/.m2/repository/org/ow2/asm/asm-commons/9.0/asm-commons-9.0.jar:/home/olivier/.m2/repository/org/ow2/asm/asm-tree/9.0/asm-tree-9.0.jar:/home/olivier/.m2/repository/org/ow2/asm/asm-analysis/9.0/asm-analysis-9.0.jar:/home/olivier/.m2/repository/org/jboss/weld/servlet/weld-servlet-core/3.1.5.SP1/weld-servlet-core-3.1.5.SP1.jar:/home/olivier/.m2/repository/org/jboss/weld/environment/weld-environment-common/3.1.5.SP1/weld-environment-common-3.1.5.SP1.jar:/home/olivier/.m2/repository/org/jboss/weld/weld-core-impl/3.1.5.SP1/weld-core-impl-3.1.5.SP1.jar:/home/olivier/.m2/repository/org/jboss/spec/javax/annotation/jboss-annotations-api_1.3_spec/2.0.1.Final/jboss-annotations-api_1.3_spec-2.0.1.Final.jar:/home/olivier/.m2/repository/org/jboss/spec/javax/interceptor/jboss-interceptors-api_1.2_spec/2.0.0.Final/jboss-interceptors-api_1.2_spec-2.0.0.Final.jar:/home/olivier/.m2/repository/org/jboss/weld/weld-spi/3.1.SP3/weld-spi-3.1.SP3.jar:/home/olivier/.m2/repository/org/jboss/weld/weld-api/3.1.SP3/weld-api-3.1.SP3.jar:/home/olivier/.m2/repository/org/jboss/weld/probe/weld-probe-core/3.1.5.SP1/weld-probe-core-3.1.5.SP1.jar:/home/olivier/.m2/repository/jakarta/enterprise/jakarta.enterprise.cdi-api/2.0.2/jakarta.enterprise.cdi-api-2.0.2.jar:/home/olivier/.m2/repository/jakarta/inject/jakarta.inject-api/1.0/jakarta.inject-api-1.0.jar:/home/olivier/.m2/repository/org/jboss/weld/module/weld-jsf/3.1.5.SP1/weld-jsf-3.1.5.SP1.jar:/home/olivier/.m2/repository/org/jboss/weld/module/weld-web/3.1.5.SP1/weld-web-3.1.5.SP1.jar:/home/olivier/.m2/repository/org/jboss/spec/javax/el/jboss-el-api_3.0_spec/2.0.0.Final/jboss-el-api_3.0_spec-2.0.0.Final.jar:/home/olivier/.m2/repository/org/jboss/logging/jboss-logging/3.2.1.Final/jboss-logging-3.2.1.Final.jar:/home/olivier/.m2/repository/org/jboss/classfilewriter/jboss-classfilewriter/1.2.4.Final/jboss-classfilewriter-1.2.4.Final.jar:/home/olivier/.m2/repository/org/jboss/jandex/2.2.1.Final/jandex-2.2.1.Final.jar:/home/olivier/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet/2.32/jersey-container-servlet-2.32.jar:/home/olivier/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet-core/2.32/jersey-container-servlet-core-2.32.jar:/home/olivier/.m2/repository/org/glassfish/jersey/core/jersey-common/2.32/jersey-common-2.32.jar:/home/olivier/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar:/home/olivier/.m2/repository/org/glassfish/hk2/osgi-resource-locator/1.0.3/osgi-resource-locator-1.0.3.jar:/home/olivier/.m2/repository/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar:/home/olivier/.m2/repository/org/glassfish/jersey/core/jersey-server/2.32/jersey-server-2.32.jar:/home/olivier/.m2/repository/org/glassfish/jersey/media/jersey-media-jaxb/2.32/jersey-media-jaxb-2.32.jar:/home/olivier/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar:/home/olivier/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar:/home/olivier/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar:/home/olivier/.m2/repository/org/glassfish/jersey/ext/cdi/jersey-cdi1x/2.32/jersey-cdi1x-2.32.jar:/home/olivier/.m2/repository/org/glassfish/jersey/inject/jersey-hk2/2.32/jersey-hk2-2.32.jar:/home/olivier/.m2/repository/org/glassfish/hk2/hk2-locator/2.6.1/hk2-locator-2.6.1.jar:/home/olivier/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.6.1/aopalliance-repackaged-2.6.1.jar:/home/olivier/.m2/repository/org/glassfish/hk2/hk2-api/2.6.1/hk2-api-2.6.1.jar:/home/olivier/.m2/repository/org/glassfish/hk2/hk2-utils/2.6.1/hk2-utils-2.6.1.jar:/home/olivier/.m2/repository/org/javassist/javassist/3.25.0-GA/javassist-3.25.0-GA.jar:/home/olivier/.m2/repository/jakarta/ws/rs/jakarta.ws.rs-api/2.1.6/jakarta.ws.rs-api-2.1.6.jar:/home/olivier/.m2/repository/org/hibernate/hibernate-core/5.4.24.Final/hibernate-core-5.4.24.Final.jar:/home/olivier/.m2/repository/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar:/home/olivier/.m2/repository/net/bytebuddy/byte-buddy/1.10.17/byte-buddy-1.10.17.jar:/home/olivier/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/olivier/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.1.1.Final/jboss-transaction-api_1.2_spec-1.1.1.Final.jar:/home/olivier/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/home/olivier/.m2/repository/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar:/home/olivier/.m2/repository/org/dom4j/dom4j/2.1.3/dom4j-2.1.3.jar:/home/olivier/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final/hibernate-commons-annotations-5.1.2.Final.jar:/home/olivier/.m2/repository/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar:/home/olivier/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1.jar:/home/olivier/.m2/repository/org/glassfish/jaxb/txw2/2.3.1/txw2-2.3.1.jar:/home/olivier/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.7/istack-commons-runtime-3.0.7.jar:/home/olivier/.m2/repository/org/jvnet/staxex/stax-ex/1.8/stax-ex-1.8.jar:/home/olivier/.m2/repository/com/sun/xml/fastinfoset/FastInfoset/1.2.15/FastInfoset-1.2.15.jar:/home/olivier/.m2/repository/org/hibernate/hibernate-c3p0/5.4.24.Final/hibernate-c3p0-5.4.24.Final.jar:/home/olivier/.m2/repository/com/mchange/c3p0/0.9.5.5/c3p0-0.9.5.5.jar:/home/olivier/.m2/repository/com/mchange/mchange-commons-java/0.2.19/mchange-commons-java-0.2.19.jar:/home/olivier/.m2/repository/com/h2database/h2/1.4.200/h2-1.4.200.jar:/home/olivier/.m2/repository/jakarta/transaction/jakarta.transaction-api/1.3.3/jakarta.transaction-api-1.3.3.jar:/home/olivier/.m2/repository/org/jboss/narayana/jta/narayana-jta/5.10.6.Final/narayana-jta-5.10.6.Final.jar:/home/olivier/.m2/repository/org/jboss/jboss-transaction-spi/7.6.0.Final/jboss-transaction-spi-7.6.0.Final.jar:/home/olivier/.m2/repository/org/jboss/spec/javax/resource/jboss-connector-api_1.7_spec/1.0.0.Final/jboss-connector-api_1.7_spec-1.0.0.Final.jar:/home/olivier/.m2/repository/org/jboss/narayana/jta/cdi/5.10.6.Final/cdi-5.10.6.Final.jar:/home/olivier/.m2/repository/org/jboss/narayana/jta/jta/5.10.6.Final/jta-5.10.6.Final.jar:/home/olivier/.m2/repository/org/jboss/narayana/common/5.10.6.Final/common-5.10.6.Final.jar:/home/olivier/.m2/repository/org/jboss/narayana/arjunacore/arjuna/5.10.6.Final/arjuna-5.10.6.Final.jar:/home/olivier/.m2/repository/org/glassfish/jersey/core/jersey-client/2.32/jersey-client-2.32.jar:/home/olivier/.m2/repository/org/glassfish/hk2/external/jakarta.inject/2.6.1/jakarta.inject-2.6.1.jar:/home/olivier/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/olivier/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar, java.vm.vendor=Debian, sun.arch.data.model=64, javax.persistence.bean.manager=Weld BeanManager for /api_/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty/target/classes [bean count=35], java.vendor.url=https://tracker.debian.org/openjdk-11, user.timezone=Europe/Paris, javax.persistence.jdbc.url=jdbc:h2:mem:, javax.persistence.jdbc.user=****, os.name=Linux, java.vm.specification.version=11, sun.java.launcher=SUN_STANDARD, user.country=FR, local.setting.IS_JTA_TXN_COORD=true, sun.boot.library.path=/usr/lib/jvm/java-11-openjdk-amd64/lib, sun.java.command=io.github.oliviercailloux.jetty.MyJettyServer, jdk.debug=release, sun.cpu.endian=little, user.home=/home/olivier, hibernate.c3p0.max_statements=50, user.language=fr, java.specification.vendor=Oracle Corporation, java.version.date=2020-10-20, java.home=/usr/lib/jvm/java-11-openjdk-amd64, file.separator=/, java.vm.compressedOopsMode=32-bit, line.separator=
+, hibernate.c3p0.timeout=180, java.specification.name=Java Platform API Specification, java.vm.specification.vendor=Oracle Corporation, hibernate.transaction.coordinator_class=class org.hibernate.resource.transaction.backend.jta.internal.JtaTransactionCoordinatorBuilderImpl, java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment, javax.persistence.jdbc.driver=org.h2.Driver, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, hibernate.c3p0.max_size=20, java.runtime.version=11.0.9+11-post-Debian-1deb10u1, user.name=olivier, path.separator=:, hibernate.connection.username=****, os.version=4.19.0-12-amd64, java.runtime.name=OpenJDK Runtime Environment, hibernate.connection.url=jdbc:h2:mem:, file.encoding=UTF-8, hibernate.ejb.persistenceUnitName=PU, java.vm.name=OpenJDK 64-Bit Server VM, hibernate.connection.driver_class=org.h2.Driver, java.vendor.url.bug=https://bugs.debian.org/openjdk-11, jetty.git.hash=1be68755656cef678b79a2ef1c2ebbca99e25420, java.io.tmpdir=/tmp, java.version=11.0.9, user.dir=/home/olivier/Local/ownCloud My Core/Professions/Enseignement/Samples/sample-jetty, os.arch=amd64, java.vm.specification.name=Java Virtual Machine Specification, java.awt.printerjob=sun.print.PSPrinterJob, javax.persistence.schema-generation.database.action=drop-and-create, sun.os.patch.level=unknown, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.registry.StandardServiceRegistryBuilder$1@6a42b231, java.library.path=/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib, java.vendor=Debian, java.vm.info=mixed mode, sharing, java.vm.version=11.0.9+11-post-Debian-1deb10u1, hibernate.bytecode.use_reflection_optimizer=false, sun.io.unicode.encoding=UnicodeLittle, java.class.version=55.0}
+00:45:57.166 [qtp660879561-12] DEBUG o.h.c.b.TypeSafeActivator - Unable to acquire Bean Validation ValidatorFactory, skipping activation
+00:45:57.167 [qtp660879561-12] DEBUG o.h.secure.spi.JaccIntegrator - Skipping JACC integration as it was not enabled
+00:45:57.168 [qtp660879561-12] DEBUG o.h.internal.SessionFactoryImpl - Instantiated session factory
+00:45:57.169 [qtp660879561-12] DEBUG o.h.type.spi.TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@a972584] to SessionFactoryImpl [org.hibernate.internal.SessionFactoryImpl@77cd5606]
+00:45:57.229 [qtp660879561-12] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [io.github.oliviercailloux.jetty.Item] is safe
+00:45:57.229 [qtp660879561-12] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : io.github.oliviercailloux.jetty.Item
+00:45:57.597 [qtp660879561-12] DEBUG o.h.p.entity.AbstractEntityPersister - Static SQL for entity: io.github.oliviercailloux.jetty.Item
+00:45:57.597 [qtp660879561-12] DEBUG o.h.p.entity.AbstractEntityPersister -  Version select: select id from Item where id =?
+00:45:57.597 [qtp660879561-12] DEBUG o.h.p.entity.AbstractEntityPersister -  Snapshot select: select item_.id, item_.name as name2_0_ from Item item_ where item_.id=?
+00:45:57.597 [qtp660879561-12] DEBUG o.h.p.entity.AbstractEntityPersister -  Insert 0: insert into Item (name, id) values (?, ?)
+00:45:57.597 [qtp660879561-12] DEBUG o.h.p.entity.AbstractEntityPersister -  Update 0: update Item set name=? where id=?
+00:45:57.597 [qtp660879561-12] DEBUG o.h.p.entity.AbstractEntityPersister -  Delete 0: delete from Item where id=?
+00:45:57.621 [qtp660879561-12] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5f7e0a57]
+00:45:57.623 [qtp660879561-12] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : name
+00:45:57.623 [qtp660879561-12] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+00:45:57.636 [qtp660879561-12] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+00:45:57.641 [qtp660879561-12] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(entity=io.github.oliviercailloux.jetty.Item)
+    - Returns
+       - EntityReturnImpl(entity=io.github.oliviercailloux.jetty.Item, querySpaceUid=<gen:0>, path=io.github.oliviercailloux.jetty.Item)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=io.github.oliviercailloux.jetty.Item)
+          - SQL table alias mapping - item0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+
+00:45:57.644 [qtp660879561-12] DEBUG o.h.loader.entity.plan.EntityLoader - Static select for entity io.github.oliviercailloux.jetty.Item [NONE]: select item0_.id as id1_0_0_, item0_.name as name2_0_0_ from Item item0_ where item0_.id=?
+00:45:57.681 [qtp660879561-12] DEBUG o.h.e.t.j.p.i.JtaPlatformInitiator - No JtaPlatform was specified, checking resolver
+00:45:57.682 [qtp660879561-12] DEBUG o.h.e.t.j.p.i.JtaPlatformResolverInitiator - No JtaPlatformResolver was specified, using default [org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver]
+00:45:57.687 [qtp660879561-12] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.JBossStandAloneJtaPlatform]
+00:45:57.692 [qtp660879561-12] DEBUG org.hibernate.SQL - drop table if exists Item CASCADE 
+00:45:57.694 [qtp660879561-12] DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+00:45:57.698 [qtp660879561-12] DEBUG org.hibernate.SQL - create sequence hibernate_sequence start with 1 increment by 1
+00:45:57.702 [qtp660879561-12] DEBUG org.hibernate.SQL - create table Item (id integer not null, name varchar(255), primary key (id))
+00:45:57.713 [qtp660879561-12] DEBUG o.h.query.spi.NamedQueryRepository - Checking 0 named HQL queries
+00:45:57.713 [qtp660879561-12] DEBUG o.h.query.spi.NamedQueryRepository - Checking 0 named SQL queries
+00:45:57.722 [qtp660879561-12] DEBUG o.h.internal.SessionFactoryRegistry - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@1676cb93
+00:45:57.724 [qtp660879561-12] DEBUG o.h.internal.SessionFactoryRegistry - Registering SessionFactory: 5d71fa51-92ee-4503-bf68-a61be9a9d737 (<unnamed>)
+00:45:57.724 [qtp660879561-12] DEBUG o.h.internal.SessionFactoryRegistry - Not binding SessionFactory to JNDI, no JNDI name configured
+00:45:57.785 [qtp660879561-12] DEBUG o.h.r.t.b.j.i.JtaTransactionCoordinatorImpl - Hibernate RegisteredSynchronization successfully registered with JTA platform
+00:45:57.813 [qtp660879561-12] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=false]
+00:45:57.823 [qtp660879561-12] DEBUG org.hibernate.SQL - call next value for hibernate_sequence
+00:45:57.836 [qtp660879561-12] DEBUG o.h.id.enhanced.SequenceStructure - Sequence value obtained: 1
+00:45:57.837 [qtp660879561-12] DEBUG o.h.r.j.i.ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+00:45:57.851 [qtp660879561-12] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 1, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+00:45:57.878 [qtp660879561-12] DEBUG c.a.a.j.c.a.ContextPropagationAsyncHandler - Class io.smallrye.reactive.converters.ReactiveTypeConverter is not available on classpath. Handling of asynchronous types in @Transactional methods could not work properly. Consider to add java artifacts 'org.eclipse.microprofile.reactive-streams-operators.microprofile-reactive-streams-operators-api', 'org.reactivestreams:reactive-streams' and  'io.smallrye.reactive:smallrye-reactive-converter-api' to your classpath
+00:45:57.880 [qtp660879561-12] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+00:45:57.881 [qtp660879561-12] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+00:45:57.885 [qtp660879561-12] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+00:45:57.886 [qtp660879561-12] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+00:45:57.887 [qtp660879561-12] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+00:45:57.887 [qtp660879561-12] DEBUG o.h.internal.util.EntityPrinter - io.github.oliviercailloux.jetty.Item{name=MyItem dated 2020-11-30T00:45:52.929399+01:00[Europe/Paris], id=1}
+00:45:57.891 [qtp660879561-12] DEBUG org.hibernate.SQL - insert into Item (name, id) values (?, ?)
+00:45:57.898 [qtp660879561-12] DEBUG o.h.e.t.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+00:45:57.899 [qtp660879561-12] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+00:45:57.940 [qtp660879561-16] DEBUG o.h.r.t.b.j.i.JtaTransactionCoordinatorImpl - Hibernate RegisteredSynchronization successfully registered with JTA platform
+00:45:57.943 [qtp660879561-16] DEBUG o.h.q.c.internal.CriteriaQueryImpl - Rendered criteria query -> select generatedAlias0 from Item as generatedAlias0
+00:45:57.960 [qtp660879561-16] DEBUG o.h.h.i.QueryTranslatorFactoryInitiator - QueryTranslatorFactory: org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory@123f9a01
+00:45:57.991 [qtp660879561-16] DEBUG o.h.h.i.ast.QueryTranslatorImpl - parse() - HQL: select generatedAlias0 from io.github.oliviercailloux.jetty.Item as generatedAlias0
+00:45:57.998 [qtp660879561-16] DEBUG o.h.hql.internal.ast.ErrorTracker - throwQueryException() : no errors
+00:45:58.014 [qtp660879561-16] DEBUG o.h.h.i.ast.QueryTranslatorImpl - --- HQL AST ---
+ \-[QUERY] Node: 'query'
+    \-[SELECT_FROM] Node: 'SELECT_FROM'
+       +-[FROM] Node: 'from'
+       |  \-[RANGE] Node: 'RANGE'
+       |     +-[DOT] Node: '.'
+       |     |  +-[DOT] Node: '.'
+       |     |  |  +-[DOT] Node: '.'
+       |     |  |  |  +-[DOT] Node: '.'
+       |     |  |  |  |  +-[IDENT] Node: 'io'
+       |     |  |  |  |  \-[IDENT] Node: 'github'
+       |     |  |  |  \-[IDENT] Node: 'oliviercailloux'
+       |     |  |  \-[IDENT] Node: 'jetty'
+       |     |  \-[IDENT] Node: 'Item'
+       |     \-[ALIAS] Node: 'generatedAlias0'
+       \-[SELECT] Node: 'select'
+          \-[IDENT] Node: 'generatedAlias0'
+
+00:45:58.039 [qtp660879561-16] DEBUG o.h.h.i.antlr.HqlSqlBaseWalker - select << begin [level=1, statement=select]
+00:45:58.055 [qtp660879561-16] DEBUG o.h.h.internal.ast.tree.FromElement - FromClause{level=1} : io.github.oliviercailloux.jetty.Item (generatedAlias0) -> item0_
+00:45:58.056 [qtp660879561-16] DEBUG o.h.h.i.ast.tree.FromReferenceNode - Resolved : generatedAlias0 -> item0_.id
+00:45:58.058 [qtp660879561-16] DEBUG o.h.h.i.antlr.HqlSqlBaseWalker - select : finishing up [level=1, statement=select]
+00:45:58.059 [qtp660879561-16] DEBUG o.h.hql.internal.ast.HqlSqlWalker - processQuery() :  ( SELECT ( {select clause} item0_.id ) ( FromClause{level=1} Item item0_ ) )
+00:45:58.066 [qtp660879561-16] DEBUG o.h.h.i.ast.util.JoinProcessor - Tables referenced from query nodes:
+ \-QueryNode
+    +-SelectClause
+    | referencedTables(entity Item): [Item]
+    |  +-IdentNode
+    |  | persister: SingleTableEntityPersister(io.github.oliviercailloux.jetty.Item)
+    |  | originalText: generatedAlias0
+    |  \-SqlFragment
+    \-FromClause
+       \-FromElement
+
+00:45:58.069 [qtp660879561-16] DEBUG o.h.h.i.ast.util.JoinProcessor - Using FROM fragment [Item item0_]
+00:45:58.070 [qtp660879561-16] DEBUG o.h.h.i.antlr.HqlSqlBaseWalker - select >> end [level=1, statement=select]
+00:45:58.071 [qtp660879561-16] DEBUG o.h.h.i.ast.QueryTranslatorImpl - --- SQL AST ---
+ \-[SELECT] QueryNode: 'SELECT'  querySpaces (Item)
+    +-[SELECT_CLAUSE] SelectClause: '{select clause}'
+    |  +-[ALIAS_REF] IdentNode: 'item0_.id as id1_0_' {alias=generatedAlias0, className=io.github.oliviercailloux.jetty.Item, tableAlias=item0_}
+    |  \-[SQL_TOKEN] SqlFragment: 'item0_.name as name2_0_'
+    \-[FROM] FromClause: 'from' FromClause{level=1, fromElementCounter=1, fromElements=1, fromElementByClassAlias=[generatedAlias0], fromElementByTableAlias=[item0_], fromElementsByPath=[], collectionJoinFromElementsByPath=[], impliedElements=[]}
+       \-[FROM_FRAGMENT] FromElement: 'Item item0_' FromElement{explicit,not a collection join,not a fetch join,fetch non-lazy properties,classAlias=generatedAlias0,role=null,tableName=Item,tableAlias=item0_,origin=null,columns={,className=io.github.oliviercailloux.jetty.Item}}
+
+00:45:58.071 [qtp660879561-16] DEBUG o.h.hql.internal.ast.ErrorTracker - throwQueryException() : no errors
+00:45:58.078 [qtp660879561-16] DEBUG o.h.h.i.ast.QueryTranslatorImpl - HQL: select generatedAlias0 from io.github.oliviercailloux.jetty.Item as generatedAlias0
+00:45:58.078 [qtp660879561-16] DEBUG o.h.h.i.ast.QueryTranslatorImpl - SQL: select item0_.id as id1_0_, item0_.name as name2_0_ from Item item0_
+00:45:58.078 [qtp660879561-16] DEBUG o.h.hql.internal.ast.ErrorTracker - throwQueryException() : no errors
+00:45:58.101 [qtp660879561-16] DEBUG org.hibernate.SQL - select item0_.id as id1_0_, item0_.name as name2_0_ from Item item0_
+00:45:58.107 [qtp660879561-16] DEBUG o.h.e.t.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+00:45:58.108 [qtp660879561-16] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+00:45:58.118 [main] INFO  i.g.o.jetty.MyJettyServer - Post 1: .
+00:45:58.123 [qtp660879561-12] DEBUG o.h.r.t.b.j.i.JtaTransactionCoordinatorImpl - Hibernate RegisteredSynchronization successfully registered with JTA platform
+00:45:58.123 [qtp660879561-12] DEBUG org.hibernate.SQL - call next value for hibernate_sequence
+00:45:58.124 [qtp660879561-12] DEBUG o.h.id.enhanced.SequenceStructure - Sequence value obtained: 2
+00:45:58.124 [qtp660879561-12] DEBUG o.h.r.j.i.ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+00:45:58.124 [qtp660879561-12] DEBUG o.h.e.i.AbstractSaveEventListener - Generated identifier: 2, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+00:45:58.125 [qtp660879561-12] DEBUG o.h.e.i.AbstractFlushingEventListener - Processing flush-time cascades
+00:45:58.125 [qtp660879561-12] DEBUG o.h.e.i.AbstractFlushingEventListener - Dirty checking collections
+00:45:58.125 [qtp660879561-12] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+00:45:58.125 [qtp660879561-12] DEBUG o.h.e.i.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+00:45:58.125 [qtp660879561-12] DEBUG o.h.internal.util.EntityPrinter - Listing entities:
+00:45:58.125 [qtp660879561-12] DEBUG o.h.internal.util.EntityPrinter - io.github.oliviercailloux.jetty.Item{name=MyItem dated 2020-11-30T00:45:58.122643+01:00[Europe/Paris], id=2}
+00:45:58.125 [qtp660879561-12] DEBUG org.hibernate.SQL - insert into Item (name, id) values (?, ?)
+00:45:58.126 [qtp660879561-12] DEBUG o.h.e.t.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+00:45:58.126 [qtp660879561-12] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+00:45:58.134 [qtp660879561-16] DEBUG o.h.r.t.b.j.i.JtaTransactionCoordinatorImpl - Hibernate RegisteredSynchronization successfully registered with JTA platform
+00:45:58.134 [qtp660879561-16] DEBUG o.h.q.c.internal.CriteriaQueryImpl - Rendered criteria query -> select generatedAlias0 from Item as generatedAlias0
+00:45:58.135 [qtp660879561-16] DEBUG org.hibernate.SQL - select item0_.id as id1_0_, item0_.name as name2_0_ from Item item0_
+00:45:58.135 [qtp660879561-16] DEBUG o.h.e.t.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+00:45:58.136 [qtp660879561-16] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+00:45:58.138 [main] INFO  i.g.o.jetty.MyJettyServer - Post 2: .
+00:45:58.145 [qtp660879561-12] DEBUG o.h.r.t.b.j.i.JtaTransactionCoordinatorImpl - Hibernate RegisteredSynchronization successfully registered with JTA platform
+00:45:58.146 [qtp660879561-12] DEBUG o.h.q.c.internal.CriteriaQueryImpl - Rendered criteria query -> select generatedAlias0 from Item as generatedAlias0
+00:45:58.146 [qtp660879561-12] DEBUG org.hibernate.SQL - select item0_.id as id1_0_, item0_.name as name2_0_ from Item item0_
+00:45:58.147 [qtp660879561-12] DEBUG o.h.e.t.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+00:45:58.147 [qtp660879561-12] DEBUG o.h.r.j.i.LogicalConnectionManagedImpl - Initiating JDBC connection release from afterTransaction
+00:45:58.160 [main] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@240237d2{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+00:45:58.180 [main] DEBUG o.h.internal.SessionFactoryImpl - HHH000031: Closing
+00:45:58.180 [main] DEBUG o.h.type.spi.TypeConfiguration$Scope - Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@2cc03cd1] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@77cd5606]
+00:45:58.182 [main] INFO  org.hibernate.orm.beans - HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerImmediateAccessImpl@21e20ad5
+00:45:58.183 [main] DEBUG o.h.s.i.AbstractServiceRegistryImpl - Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+00:45:58.189 [main] DEBUG c.m.v.c.m.ActiveManagementCoordinator - MBean: com.mchange.v2.c3p0:type=PooledDataSource,identityToken=1hge13eae67qf59o1nm2i|7e44982,name=1hge13eae67qf59o1nm2i|7e44982 unregistered.
+00:45:58.189 [main] DEBUG c.m.v.c.m.ActiveManagementCoordinator - C3P0Registry mbean unregistered.
+00:45:58.190 [main] DEBUG o.h.b.r.i.BootstrapServiceRegistryImpl - Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+00:45:58.196 [main] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@703580bf{/api,null,STOPPED}
+00:45:58.205 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.resourcepool.BasicResourcePool - Preparing to destroy resource: com.mchange.v2.c3p0.impl.NewPooledConnection@431ddd4d
+00:45:58.205 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.c.i.C3P0PooledConnectionPool - Preparing to destroy PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@431ddd4d
+00:45:58.208 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.c.i.C3P0PooledConnectionPool - Successfully destroyed PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@431ddd4d
+00:45:58.208 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.resourcepool.BasicResourcePool - Successfully destroyed resource: com.mchange.v2.c3p0.impl.NewPooledConnection@431ddd4d
+00:45:58.208 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.resourcepool.BasicResourcePool - Preparing to destroy resource: com.mchange.v2.c3p0.impl.NewPooledConnection@33c8c099
+00:45:58.208 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.c.i.C3P0PooledConnectionPool - Preparing to destroy PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@33c8c099
+00:45:58.208 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.c.i.C3P0PooledConnectionPool - Successfully destroyed PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@33c8c099
+00:45:58.208 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.resourcepool.BasicResourcePool - Successfully destroyed resource: com.mchange.v2.c3p0.impl.NewPooledConnection@33c8c099
+00:45:58.208 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.resourcepool.BasicResourcePool - Preparing to destroy resource: com.mchange.v2.c3p0.impl.NewPooledConnection@ee9134d
+00:45:58.208 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.c.i.C3P0PooledConnectionPool - Preparing to destroy PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@ee9134d
+00:45:58.209 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.c.i.C3P0PooledConnectionPool - Successfully destroyed PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@ee9134d
+00:45:58.209 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.resourcepool.BasicResourcePool - Successfully destroyed resource: com.mchange.v2.c3p0.impl.NewPooledConnection@ee9134d
+00:45:58.209 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.resourcepool.BasicResourcePool - Preparing to destroy resource: com.mchange.v2.c3p0.impl.NewPooledConnection@68cf5901
+00:45:58.209 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.c.i.C3P0PooledConnectionPool - Preparing to destroy PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@68cf5901
+00:45:58.209 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.c.i.C3P0PooledConnectionPool - Successfully destroyed PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@68cf5901
+00:45:58.209 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.resourcepool.BasicResourcePool - Successfully destroyed resource: com.mchange.v2.c3p0.impl.NewPooledConnection@68cf5901
+00:45:58.209 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.resourcepool.BasicResourcePool - Preparing to destroy resource: com.mchange.v2.c3p0.impl.NewPooledConnection@6897b729
+00:45:58.209 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.c.i.C3P0PooledConnectionPool - Preparing to destroy PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@6897b729
+00:45:58.209 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.c.i.C3P0PooledConnectionPool - Successfully destroyed PooledConnection: com.mchange.v2.c3p0.impl.NewPooledConnection@6897b729
+00:45:58.209 [Resource Destroyer in BasicResourcePool.close()] DEBUG c.m.v.resourcepool.BasicResourcePool - Successfully destroyed resource: com.mchange.v2.c3p0.impl.NewPooledConnection@6897b729
+00:45:58.216 [Listener:38517] DEBUG com.arjuna.ats.arjuna - Recovery listener existing com.arjuna.ats.arjuna.recovery.ActionStatusService
