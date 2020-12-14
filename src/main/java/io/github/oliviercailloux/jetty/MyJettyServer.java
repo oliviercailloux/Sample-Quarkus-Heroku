@@ -2,6 +2,7 @@ package io.github.oliviercailloux.jetty;
 
 import static com.google.common.base.Verify.verify;
 
+import javax.naming.InitialContext;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.client.Client;
@@ -24,12 +25,17 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.glassfish.jersey.servlet.ServletProperties;
+import org.h2.jdbcx.JdbcDataSource;
 import org.jboss.weld.environment.servlet.EnhancedListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.arjuna.ats.arjuna.common.ObjectStoreEnvironmentBean;
 import com.arjuna.ats.jta.utils.JNDIManager;
+import com.arjuna.common.internal.util.propertyservice.BeanPopulator;
 import com.google.common.base.VerifyException;
+
+import io.github.oliviercailloux.jee.TransactionalConnectionProvider;
 
 public class MyJettyServer {
 	@SuppressWarnings("unused")
@@ -44,10 +50,24 @@ public class MyJettyServer {
 		jetty.setHandlers();
 
 		/**
-		 * Must registrer Narayana in JNDI, according to
-		 * https://groups.google.com/g/narayana-users/c/lnWEBPbFzpw.
+		 * Must registrer Narayana in JNDI, so that Hibernate finds it (see also
+		 * https://groups.google.com/g/narayana-users/c/lnWEBPbFzpw).
 		 */
 		JNDIManager.bindJTAImplementation();
+		/**
+		 * Below: adapted from QuickstartApplication,
+		 * https://github.com/jbosstm/quickstart/tree/master/jta-and-hibernate-standalone
+		 */
+		final JdbcDataSource dataSource = new JdbcDataSource();
+		dataSource.setURL("jdbc:h2:mem:");
+		dataSource.setUser(TransactionalConnectionProvider.USERNAME);
+		dataSource.setPassword(TransactionalConnectionProvider.PASSWORD);
+		new InitialContext().bind(TransactionalConnectionProvider.DATASOURCE_JNDI, dataSource);
+		BeanPopulator.getDefaultInstance(ObjectStoreEnvironmentBean.class).setObjectStoreDir("target/tx-object-store");
+		BeanPopulator.getNamedInstance(ObjectStoreEnvironmentBean.class, "communicationStore")
+				.setObjectStoreDir("target/tx-object-store");
+		BeanPopulator.getNamedInstance(ObjectStoreEnvironmentBean.class, "stateStore")
+				.setObjectStoreDir("target/tx-object-store");
 
 		jetty.start();
 
