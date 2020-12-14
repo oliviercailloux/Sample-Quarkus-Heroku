@@ -63,6 +63,7 @@ public class MyJettyServer {
 		dataSource.setUser(TransactionalConnectionProvider.USERNAME);
 		dataSource.setPassword(TransactionalConnectionProvider.PASSWORD);
 		new InitialContext().bind(TransactionalConnectionProvider.DATASOURCE_JNDI, dataSource);
+		LOGGER.info("DS bound.");
 		BeanPopulator.getDefaultInstance(ObjectStoreEnvironmentBean.class).setObjectStoreDir("target/tx-object-store");
 		BeanPopulator.getNamedInstance(ObjectStoreEnvironmentBean.class, "communicationStore")
 				.setObjectStoreDir("target/tx-object-store");
@@ -70,6 +71,7 @@ public class MyJettyServer {
 				.setObjectStoreDir("target/tx-object-store");
 
 		jetty.start();
+		LOGGER.info("Started.");
 
 		try {
 			jetty.verifyResponses();
@@ -147,16 +149,21 @@ public class MyJettyServer {
 		final UriBuilder uri = UriBuilder.fromUri("http://localhost").port(port);
 
 		final WebTarget root = client.target(uri);
+		LOGGER.info("Requesting (static).");
 		final String resultRoot = root.request(MediaType.TEXT_PLAIN).get(String.class);
 		verify(resultRoot.equals("Hello, world.\n"), resultRoot);
+		LOGGER.info("Verified (static).");
 
 		final WebTarget nonExistent = root.path("nonExistent");
+		LOGGER.info("Requesting (N/A).");
 		try (Response resultNonExistent = nonExistent.request().get()) {
 			verify(resultNonExistent.getStatus() == Response.Status.NOT_FOUND.getStatusCode(),
 					String.valueOf(resultNonExistent.getStatus()));
 		}
+		LOGGER.info("Verified (N/A).");
 
 		final WebTarget servlet = client.target(uri).path("api").path("item");
+		LOGGER.info("Requesting (post).");
 		final String post1 = servlet.request().post(null, String.class);
 		LOGGER.info("Post 1: {}.", post1);
 		final String post2 = servlet.request().post(null, String.class);
