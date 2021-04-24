@@ -25,7 +25,7 @@ public class Item {
 	/**
 	 * Returns the item name.
 	 *
-	 * @return not <code>null</code>.
+	 * @return not {@code null}.
 	 */
 	public String getName() {
 		return name;
@@ -34,7 +34,7 @@ public class Item {
 	/**
 	 * Sets the item name.
 	 *
-	 * @param name <code>null</code> strings are converted to empty strings.
+	 * @param name {@code null} strings are converted to empty strings.
 	 */
 	public void setName(String name) {
 		this.name = name == null ? "" : name;
