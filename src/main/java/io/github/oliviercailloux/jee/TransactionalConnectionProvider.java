@@ -44,8 +44,6 @@ public class TransactionalConnectionProvider implements ConnectionProvider {
 	@Override
 	public Connection getConnection() throws SQLException {
 		Properties properties = new Properties();
-		properties.setProperty(TransactionalDriver.userName, USERNAME);
-		properties.setProperty(TransactionalDriver.password, PASSWORD);
 		return transactionalDriver.connect("jdbc:arjuna:" + DATASOURCE_JNDI, properties);
 	}
 
@@ -58,7 +56,7 @@ public class TransactionalConnectionProvider implements ConnectionProvider {
 
 	@Override
 	public boolean supportsAggressiveRelease() {
-		return false;
+		return true;
 	}
 
 	@Override
