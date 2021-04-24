@@ -16,19 +16,17 @@
  */
 package io.github.oliviercailloux.jee;
 
+import com.arjuna.ats.jdbc.TransactionalDriver;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
-
 import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 import org.hibernate.service.UnknownUnwrapTypeException;
-
-import com.arjuna.ats.jdbc.TransactionalDriver;
 
 /**
  * @author <a href="mailto:gytis@redhat.com">Gytis Trikleris</a>
  */
-@SuppressWarnings("serial")
+@SuppressWarnings("serial") // TODO
 public class TransactionalConnectionProvider implements ConnectionProvider {
 
 	public static final String DATASOURCE_JNDI = "java:/quickstartDataSource";
