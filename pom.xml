@@ -12,8 +12,21 @@
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.release>11</maven.compiler.release>
-		<jetty>11.0.2</jetty>
+		<jetty>9.4.33.v20201020</jetty>
 	</properties>
+
+	<repositories>
+		<repository>
+			<id>jetty-snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/jetty-snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 	<dependencies>
 		<dependency>
@@ -44,7 +57,7 @@
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet-core</artifactId>
-			<version>4.0.1.SP1</version>
+			<version>3.1.5.SP1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss</groupId>
@@ -52,31 +65,32 @@
 			<version>2.2.1.Final</version>
 		</dependency>
 		<dependency>
-			<groupId>jakarta.ws.rs</groupId>
-			<artifactId>jakarta.ws.rs-api</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet</artifactId>
-			<version>3.0.1</version>
+			<version>2.32</version>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>org.glassfish.jersey.ext.cdi</groupId> -->
-		<!-- <artifactId>jersey-cdi1x</artifactId> -->
-		<!-- <version>2.32</version> -->
-		<!-- <scope>runtime</scope> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.glassfish.jersey.inject</groupId> -->
-		<!-- <artifactId>jersey-hk2</artifactId> -->
-		<!-- <version>2.32</version> -->
-		<!-- <scope>runtime</scope> -->
-		<!-- </dependency> -->
 		<dependency>
-			<groupId>org.hibernate.orm</groupId>
+			<groupId>org.glassfish.jersey.ext.cdi</groupId>
+			<artifactId>jersey-cdi1x</artifactId>
+			<version>2.32</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.inject</groupId>
+			<artifactId>jersey-hk2</artifactId>
+			<version>2.32</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.ws.rs</groupId>
+			<artifactId>jakarta.ws.rs-api</artifactId>
+			<version>2.1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>6.0.0.Alpha7</version>
+			<version>5.4.22.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -158,7 +172,7 @@
 				</executions>
 				<configuration>
 					<printEqualFiles>true</printEqualFiles>
-					<!-- <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict> -->
+<!-- 					<failBuildInCaseOfConflict>true</failBuildInCaseOfConflict> -->
 				</configuration>
 			</plugin>
 		</plugins>

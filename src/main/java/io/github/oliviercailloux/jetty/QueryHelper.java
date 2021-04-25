@@ -1,9 +1,10 @@
 package io.github.oliviercailloux.jetty;
 
-import jakarta.inject.Inject;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 @ApplicationScoped

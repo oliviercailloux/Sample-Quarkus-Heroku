@@ -7,27 +7,30 @@ import com.arjuna.ats.jta.utils.JNDIManager;
 import com.arjuna.common.internal.util.propertyservice.BeanPopulator;
 import com.google.common.base.VerifyException;
 import io.github.oliviercailloux.jee.TransactionalConnectionProvider;
-import jakarta.servlet.Servlet;
-import jakarta.ws.rs.InternalServerErrorException;
-import jakarta.ws.rs.NotFoundException;
-import jakarta.ws.rs.client.Client;
-import jakarta.ws.rs.client.ClientBuilder;
-import jakarta.ws.rs.client.WebTarget;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.core.UriBuilder;
 import javax.naming.InitialContext;
+import javax.ws.rs.InternalServerErrorException;
+import javax.ws.rs.NotFoundException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
+import org.eclipse.jetty.cdi.CdiServletContainerInitializer;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.ForwardedRequestCustomizer;
 import org.eclipse.jetty.server.HttpConfiguration;
 import org.eclipse.jetty.server.HttpConnectionFactory;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
-import org.eclipse.jetty.server.handler.DefaultHandler;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+import org.glassfish.jersey.servlet.ServletContainer;
+import org.glassfish.jersey.servlet.ServletProperties;
 import org.h2.jdbcx.JdbcDataSource;
+import org.jboss.weld.environment.servlet.EnhancedListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -102,22 +105,15 @@ public class MyJettyServer {
 	}
 
 	public void setConnectors() {
-		final HttpConnectionFactory httpConnectionFactory;
-		{
-			final HttpConfiguration config = new HttpConfiguration();
-			/**
-			 * Add support for X-Forwarded headers: thanks to
-			 * https://stackoverflow.com/a/28520946. Required because of
-			 * https://devcenter.heroku.com/articles/http-routing.
-			 */
-			config.addCustomizer(new ForwardedRequestCustomizer());
-			httpConnectionFactory = new HttpConnectionFactory(config);
-
-			// TODO
-//			HTTP2CServerConnectionFactory h2c = new HTTP2CServerConnectionFactory(httpConfig);
-		}
+		final HttpConfiguration config = new HttpConfiguration();
+		/**
+		 * Add support for X-Forwarded headers: thanks to
+		 * https://stackoverflow.com/a/28520946. Required because of
+		 * https://devcenter.heroku.com/articles/http-routing.
+		 */
+		config.addCustomizer(new ForwardedRequestCustomizer());
 		@SuppressWarnings("resource")
-		final ServerConnector connector = new ServerConnector(server, httpConnectionFactory);
+		final ServerConnector connector = new ServerConnector(server, new HttpConnectionFactory(config));
 		/** According to the SO post (link here above), the port must be set here. */
 		connector.setPort(port);
 		server.setConnectors(new Connector[] { connector });
@@ -136,41 +132,25 @@ public class MyJettyServer {
 
 		final ServletContextHandler servletHandler = new ServletContextHandler();
 		servletHandler.setContextPath("/api");
-		/*
-		 * https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest3x/index.
-		 * html
-		 */
-		final Servlet servletContainer = new org.glassfish.jersey.servlet.ServletContainer();
-//		final ServletHolder jerseyHolder = new ServletHolder(ServletContainer.class);
-//		final String appName = MyJaxRsApp.class.getCanonicalName();
-//		jerseyHolder.setInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, appName);
-////		jerseyHolder.setInitParameter(ServletProperties.PROVIDER_WEB_APP, "true");
-//		servletHandler.addServlet(jerseyHolder, "/*");
-//
-		/* TODO */
-		// Add the CrossOriginFilter to protect from CSRF attacks.
-//		FilterHolder filterHolder = context.addFilter(CrossOriginFilter.class, "/*", EnumSet.of(DispatcherType.REQUEST));
-		// Configure the filter.
-//		filterHolder.setAsyncSupported(true);
+		final ServletHolder jerseyHolder = new ServletHolder(ServletContainer.class);
+		final String appName = MyJaxRsApp.class.getCanonicalName();
+		jerseyHolder.setInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, appName);
+//		jerseyHolder.setInitParameter(ServletProperties.PROVIDER_WEB_APP, "true");
+		servletHandler.addServlet(jerseyHolder, "/*");
 
-//		handlers.addHandler(resourceHandler);
-//		handlers.addHandler(servletHandler);
-		/*
-		 * For favicon.ico; and accompanying the 404 responses with an HTML table of
-		 * contexts.
+		handlers.addHandler(resourceHandler);
+		handlers.addHandler(servletHandler);
+		server.setHandler(handlers);
+		LOGGER.debug("Set handler: {}.", server.getHandler());
+
+		/**
+		 * Using the approach recommended at
+		 * https://github.com/eclipse/jetty.project/issues/5326#issuecomment-699506325.
 		 */
-		handlers.addHandler(new DefaultHandler());
-//		server.setHandler(handlers);
-//		LOGGER.debug("Set handler: {}.", server.getHandler());
-//
-//		/**
-//		 * Using the approach recommended at
-//		 * https://github.com/eclipse/jetty.project/issues/5326#issuecomment-699506325.
-//		 */
-//		servletHandler
-//				.addBean(new ServletContextHandler.Initializer(servletHandler, new CdiServletContainerInitializer()));
-//		servletHandler.addBean(new ServletContextHandler.Initializer(servletHandler, new EnhancedListener()));
-//		LOGGER.info("Initialized servlet handler: {}.", servletHandler);
+		servletHandler
+				.addBean(new ServletContextHandler.Initializer(servletHandler, new CdiServletContainerInitializer()));
+		servletHandler.addBean(new ServletContextHandler.Initializer(servletHandler, new EnhancedListener()));
+		LOGGER.info("Initialized servlet handler: {}.", servletHandler);
 	}
 
 	public void start() throws Exception {

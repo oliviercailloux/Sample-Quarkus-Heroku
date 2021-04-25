@@ -1,6 +1,7 @@
 package io.github.oliviercailloux.jetty;
 
-import jakarta.ws.rs.ApplicationPath;
+import javax.ws.rs.ApplicationPath;
+
 import org.glassfish.jersey.server.ResourceConfig;
 
 @ApplicationPath("/app")
