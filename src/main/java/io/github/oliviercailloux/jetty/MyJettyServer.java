@@ -2,6 +2,11 @@ package io.github.oliviercailloux.jetty;
 
 import static com.google.common.base.Verify.verify;
 
+import com.arjuna.ats.arjuna.common.ObjectStoreEnvironmentBean;
+import com.arjuna.ats.jta.utils.JNDIManager;
+import com.arjuna.common.internal.util.propertyservice.BeanPopulator;
+import com.google.common.base.VerifyException;
+import io.github.oliviercailloux.jee.TransactionalConnectionProvider;
 import javax.naming.InitialContext;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.NotFoundException;
@@ -11,7 +16,6 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
-
 import org.eclipse.jetty.cdi.CdiServletContainerInitializer;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.ForwardedRequestCustomizer;
@@ -29,13 +33,6 @@ import org.h2.jdbcx.JdbcDataSource;
 import org.jboss.weld.environment.servlet.EnhancedListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.arjuna.ats.arjuna.common.ObjectStoreEnvironmentBean;
-import com.arjuna.ats.jta.utils.JNDIManager;
-import com.arjuna.common.internal.util.propertyservice.BeanPopulator;
-import com.google.common.base.VerifyException;
-
-import io.github.oliviercailloux.jee.TransactionalConnectionProvider;
 
 public class MyJettyServer {
 	@SuppressWarnings("unused")
@@ -64,11 +61,27 @@ public class MyJettyServer {
 		dataSource.setPassword(TransactionalConnectionProvider.PASSWORD);
 		new InitialContext().bind(TransactionalConnectionProvider.DATASOURCE_JNDI, dataSource);
 		LOGGER.info("DS bound.");
-		BeanPopulator.getDefaultInstance(ObjectStoreEnvironmentBean.class).setObjectStoreDir("target/tx-object-store");
-		BeanPopulator.getNamedInstance(ObjectStoreEnvironmentBean.class, "communicationStore")
-				.setObjectStoreDir("target/tx-object-store");
-		BeanPopulator.getNamedInstance(ObjectStoreEnvironmentBean.class, "stateStore")
-				.setObjectStoreDir("target/tx-object-store");
+
+		/*
+		 * The implementation of the JDBCAccess interface to use should be set in the
+		 * ObjectStoreEnvironmentBean.jdbcUserDbAccessClassName property variable.
+		 *
+		 * ObjectStoreEnvironmentBean.objectStoreType per object?
+		 *
+		 */
+		BeanPopulator.getDefaultInstance(ObjectStoreEnvironmentBean.class)
+				.setObjectStoreType("com.arjuna.ats.internal.arjuna.objectstore.jdbc.JDBCStore");
+		/*
+		 * Found this through https://github.com/search?q=DataSourceJDBCAccess&type=code
+		 */
+		BeanPopulator.getDefaultInstance(ObjectStoreEnvironmentBean.class).setJdbcAccess(
+				"com.arjuna.ats.internal.arjuna.objectstore.jdbc.accessors.DataSourceJDBCAccess;datasourceName="
+						+ TransactionalConnectionProvider.DATASOURCE_JNDI);
+		/* Do these need to be set as well? */
+//		BeanPopulator.getNamedInstance(ObjectStoreEnvironmentBean.class, "communicationStore")
+//				.setObjectStoreDir("target/tx-object-store");
+//		BeanPopulator.getNamedInstance(ObjectStoreEnvironmentBean.class, "stateStore")
+//				.setObjectStoreDir("target/tx-object-store");
 
 		jetty.start();
 		LOGGER.info("Started.");
