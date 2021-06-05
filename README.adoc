@@ -6,4 +6,7 @@ To deploy to Heroku, simply follow their https://devcenter.heroku.com/articles/g
 
 See this (impressive) application live https://sample-jetty.herokuapp.com[here], and the (equally impressive) counter https://sample-jetty.herokuapp.com/counter[there]. (You might have to wait for about thirty seconds, the time required for Heroku to wake up the application, if it is https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping[asleep] at the time you click.)
 
-You may want to https://docs.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars[star] this repository if you find this example useful: it will encourage me to keep it up to date.
+Please note that this sample uses Narayana for getting transactional injection to work and to get JTA support, but because there is no “real” JEE server behind, the JTA support is very brittle. More services would need to be provided in replacement for those served by a normal Java EE server in order to make it work flawlessly. For this reason, I do not recommend to run this set up in a production environment.
+
+I have discontinued this sample for the reason stated above and have switched to Quarkus, because it is more difficult than I thought initially to really provide everything that is required “manually” (i.e., without a Java EE server or a service that does the job for you like Quarkus) to get JTA working.
+
