@@ -1,2 +1,3 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* io.github.oliviercailloux.jetty.MyJettyServer
+web: java -Dquarkus.http.port=${PORT} -jar target/quarkus-app/quarkus-run.jar
+
 
