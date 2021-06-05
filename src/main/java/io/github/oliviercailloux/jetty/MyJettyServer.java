@@ -1,12 +1,15 @@
 package io.github.oliviercailloux.jetty;
 
+import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.base.Verify.verify;
 
-import com.arjuna.ats.arjuna.common.ObjectStoreEnvironmentBean;
 import com.arjuna.ats.jta.utils.JNDIManager;
-import com.arjuna.common.internal.util.propertyservice.BeanPopulator;
 import com.google.common.base.VerifyException;
+import com.google.common.collect.ImmutableList;
+import io.github.oliviercailloux.jaris.credentials.CredsReader;
 import io.github.oliviercailloux.jee.TransactionalConnectionProvider;
+import java.net.URI;
+import java.nio.file.Path;
 import javax.naming.InitialContext;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.NotFoundException;
@@ -29,8 +32,8 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.glassfish.jersey.servlet.ServletProperties;
-import org.h2.jdbcx.JdbcDataSource;
 import org.jboss.weld.environment.servlet.EnhancedListener;
+import org.postgresql.xa.PGXADataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,14 +54,31 @@ public class MyJettyServer {
 		 * https://groups.google.com/g/narayana-users/c/lnWEBPbFzpw).
 		 */
 		JNDIManager.bindJTAImplementation();
-		/**
-		 * Below: adapted from QuickstartApplication,
-		 * https://github.com/jbosstm/quickstart/tree/master/jta-and-hibernate-standalone
+
+//		final String jdbcStr = Optional.ofNullable(System.getenv("JDBC_DATABASE_URL")).orElse(
+//				"jdbc:postgresql://someun:somepw@ec2-107-20-153-39.compute-1.amazonaws.com:5432/d200qa2ebbkoep");
+		final String jdbcStr = CredsReader.given("JDBC_DATABASE_URL", "JDBC_DATABASE_PASSWORD", Path.of("pg.txt"))
+				.getCredentials().getUsername();
+		final URI uri = new URI(jdbcStr);
+		final ImmutableList<String> login = ImmutableList.copyOf(uri.getUserInfo().split(":"));
+		checkState(login.size() == 2);
+		final String username = login.get(0);
+		final String password = login.get(1);
+		final URI uriWithoutUserInfo = new URI(uri.getScheme(), null, uri.getHost(), uri.getPort(), uri.getPath(), null,
+				null);
+
+		final String jdbc2Str = CredsReader
+				.given("HEROKU_POSTGRESQL_RED_JDBC_URL", "HEROKU_POSTGRESQL_RED_JDBC_PASSWORD", Path.of("pg.txt"))
+				.getCredentials().getUsername();
+		/*
+		 * “No modifier information found for db. Connection will be closed
+		 * immediately.” Apparently, simply using DBCP could solve the problem?
+		 * https://github.com/Emergency-Response-Demo/responder-service/issues/3.
 		 */
-		final JdbcDataSource dataSource = new JdbcDataSource();
-		dataSource.setURL("jdbc:h2:mem:");
-		dataSource.setUser(TransactionalConnectionProvider.USERNAME);
-		dataSource.setPassword(TransactionalConnectionProvider.PASSWORD);
+		final PGXADataSource dataSource = new PGXADataSource();
+		dataSource.setUser(username);
+		dataSource.setPassword(password);
+		dataSource.setUrl(uriWithoutUserInfo.toString());
 		new InitialContext().bind(TransactionalConnectionProvider.DATASOURCE_JNDI, dataSource);
 		LOGGER.info("DS bound.");
 
@@ -69,14 +89,14 @@ public class MyJettyServer {
 		 * ObjectStoreEnvironmentBean.objectStoreType per object?
 		 *
 		 */
-		BeanPopulator.getDefaultInstance(ObjectStoreEnvironmentBean.class)
-				.setObjectStoreType("com.arjuna.ats.internal.arjuna.objectstore.jdbc.JDBCStore");
+//		BeanPopulator.getDefaultInstance(ObjectStoreEnvironmentBean.class)
+//				.setObjectStoreType("com.arjuna.ats.internal.arjuna.objectstore.jdbc.JDBCStore");
 		/*
 		 * Found this through https://github.com/search?q=DataSourceJDBCAccess&type=code
 		 */
-		BeanPopulator.getDefaultInstance(ObjectStoreEnvironmentBean.class).setJdbcAccess(
-				"com.arjuna.ats.internal.arjuna.objectstore.jdbc.accessors.DataSourceJDBCAccess;datasourceName="
-						+ TransactionalConnectionProvider.DATASOURCE_JNDI);
+//		BeanPopulator.getDefaultInstance(ObjectStoreEnvironmentBean.class).setJdbcAccess(
+//				"com.arjuna.ats.internal.arjuna.objectstore.jdbc.accessors.DataSourceJDBCAccess;datasourceName="
+//						+ TransactionalConnectionProvider.DATASOURCE_JNDI);
 		/* Do these need to be set as well? */
 //		BeanPopulator.getNamedInstance(ObjectStoreEnvironmentBean.class, "communicationStore")
 //				.setObjectStoreDir("target/tx-object-store");

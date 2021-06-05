@@ -15,24 +15,16 @@
 		<jetty>9.4.33.v20201020</jetty>
 	</properties>
 
-	<repositories>
-		<repository>
-			<id>jetty-snapshots</id>
-			<url>https://oss.sonatype.org/content/repositories/jetty-snapshots/</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.30</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.oliviercailloux</groupId>
+			<artifactId>jaris</artifactId>
+			<version>0.0.8</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -93,9 +85,9 @@
 			<version>5.4.22.Final</version>
 		</dependency>
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.4.200</version>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.20.jre7</version>
 		</dependency>
 
 		<dependency>
@@ -172,7 +164,7 @@
 				</executions>
 				<configuration>
 					<printEqualFiles>true</printEqualFiles>
-<!-- 					<failBuildInCaseOfConflict>true</failBuildInCaseOfConflict> -->
+					<!-- <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict> -->
 				</configuration>
 			</plugin>
 		</plugins>
