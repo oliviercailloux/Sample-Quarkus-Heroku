@@ -17,7 +17,7 @@ import javax.ws.rs.core.UriInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Path("items")
+@Path("v0/items")
 @RequestScoped
 public class ItemResource {
 	@SuppressWarnings("unused")
@@ -32,13 +32,16 @@ public class ItemResource {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getItems() {
+		LOGGER.info("Running GET.");
 		final List<Item> allItems = itemS.getAll();
+		LOGGER.info("Returning {} items.", allItems.size());
 		return allItems.stream().map(Item::getName).collect(Collectors.joining("\n"));
 	}
 
 	@POST
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response postItem() {
+		LOGGER.info("Running POST.");
 		final Item item = new Item();
 		/** Ideally we’d use the client zone here. */
 		final ZonedDateTime zonedTimestamp = ZonedDateTime.now(ZoneId.systemDefault());
@@ -46,6 +49,7 @@ public class ItemResource {
 
 		itemS.persist(item);
 
+		LOGGER.info("Redirecting.");
 		return Response.seeOther(uriInfo.getAbsolutePath()).build();
 	}
 }
