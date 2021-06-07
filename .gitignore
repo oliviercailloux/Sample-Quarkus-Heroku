@@ -4,5 +4,7 @@
 target/
 out.log
 
+.env
+
 Local notes.adoc
 
