@@ -1,4 +1,4 @@
-package io.github.oliviercailloux;
+package io.github.oliviercailloux.sample_quarkus_heroku;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -10,7 +10,7 @@ import javax.persistence.criteria.Root;
 @ApplicationScoped
 public class QueryHelper {
 	@Inject
-	private EntityManagerFactory emf;
+	EntityManagerFactory emf;
 
 	public <T> CriteriaQuery<T> selectAll(Class<T> type) {
 		final CriteriaBuilder criteriaBuilder = emf.getCriteriaBuilder();

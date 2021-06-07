@@ -1,4 +1,4 @@
-package io.github.oliviercailloux;
+package io.github.oliviercailloux.sample_quarkus_heroku;
 
 import java.util.List;
 import javax.enterprise.context.RequestScoped;

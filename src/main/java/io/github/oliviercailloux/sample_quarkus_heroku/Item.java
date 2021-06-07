@@ -1,4 +1,4 @@
-package io.github.oliviercailloux;
+package io.github.oliviercailloux.sample_quarkus_heroku;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
