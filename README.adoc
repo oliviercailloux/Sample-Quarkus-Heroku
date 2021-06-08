@@ -7,7 +7,7 @@ A simple JAX-RS server configured by https://quarkus.io/[Quarkus], with JPA with
 
 To deploy to Heroku, simply follow their https://devcenter.heroku.com/articles/getting-started-with-java[tutorial], replacing their example application with this one: instead of `git clone \https://github.com/heroku/java-getting-started`, type `git clone \https://github.com/oliviercailloux/{repository}.git`.
 
-See this (impressive) application live https://{sample-quarkus-heroku}.herokuapp.com[here]. (You might have to wait for about thirty seconds, the time required for Heroku to wake up the application, if it is https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping[asleep] at the time you click.)
+See this (impressive) application live https://{artifactId}.herokuapp.com[here]. (You might have to wait for about thirty seconds, the time required for Heroku to wake up the application, if it is https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping[asleep] at the time you click.)
 
 == Local configuration file
 To develop and test your application locally, create a file named `.env` and set the following properties.
