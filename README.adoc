@@ -9,3 +9,17 @@ To deploy to Heroku, simply follow their https://devcenter.heroku.com/articles/g
 
 See this (impressive) application live https://{sample-quarkus-heroku}.herokuapp.com[here]. (You might have to wait for about thirty seconds, the time required for Heroku to wake up the application, if it is https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping[asleep] at the time you click.)
 
+== Local configuration file
+To develop and test your application locally, create a file named `.env` and set the following properties.
+
+----
+quarkus.http.port = 8080
+quarkus.datasource.username = …
+quarkus.datasource.password = …
+quarkus.datasource.jdbc.url = jdbc:postgresql://….compute.amazonaws.com:…/…
+quarkus.log.file.enable = true
+quarkus.log.file.level = DEBUG
+----
+
+You will find the credentials and URL of your datasource using the Heroku GUI or CLI, as indicated in their tutorial.
+
