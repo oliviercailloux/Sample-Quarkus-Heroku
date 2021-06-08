@@ -3,8 +3,6 @@
 :artifactId: sample-quarkus-heroku
 :repository: Sample-Quarkus-Heroku
 
-image:https://github.com/oliviercailloux/{repository}/workflows/Maven%20CI%20workflow/badge.svg?branch=master["Build Status", link="https://github.com/oliviercailloux/{repository}/actions"]
-
 A simple JAX-RS server configured by https://quarkus.io/[Quarkus], with JPA with Hibernate, CDI… Ready to be deployed to Heroku.
 
 To deploy to Heroku, simply follow their https://devcenter.heroku.com/articles/getting-started-with-java[tutorial], replacing their example application with this one: instead of `git clone \https://github.com/heroku/java-getting-started`, type `git clone \https://github.com/oliviercailloux/{repository}.git`.
