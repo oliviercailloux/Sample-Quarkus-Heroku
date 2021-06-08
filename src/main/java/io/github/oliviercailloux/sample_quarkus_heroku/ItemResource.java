@@ -17,7 +17,7 @@ import javax.ws.rs.core.UriInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Path("v0/items")
+@Path("/items")
 @RequestScoped
 public class ItemResource {
 	@SuppressWarnings("unused")
