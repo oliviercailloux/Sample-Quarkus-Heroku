@@ -1,8 +1,13 @@
 = Sample Quarkus on Heroku
+:groupId: io.github.oliviercailloux
+:artifactId: sample-quarkus-heroku
+:repository: Sample-Quarkus-Heroku
+
+image:https://github.com/oliviercailloux/{repository}/workflows/Maven%20CI%20workflow/badge.svg?branch=master["Build Status", link="https://github.com/oliviercailloux/{repository}/actions"]
 
 A simple JAX-RS server configured by https://quarkus.io/[Quarkus], with JPA with Hibernate, CDI… Ready to be deployed to Heroku.
 
-// To deploy to Heroku, simply follow their https://devcenter.heroku.com/articles/getting-started-with-java[tutorial], replacing their example application with this one: instead of `git clone \https://github.com/heroku/java-getting-started`, type `git clone \https://github.com/oliviercailloux/sample-jetty.git`.
+To deploy to Heroku, simply follow their https://devcenter.heroku.com/articles/getting-started-with-java[tutorial], replacing their example application with this one: instead of `git clone \https://github.com/heroku/java-getting-started`, type `git clone \https://github.com/oliviercailloux/{repository}.git`.
 
-// See this (impressive) application live https://sample-jetty.herokuapp.com[here], and the (equally impressive) counter https://sample-jetty.herokuapp.com/counter[there]. (You might have to wait for about thirty seconds, the time required for Heroku to wake up the application, if it is https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping[asleep] at the time you click.)
+See this (impressive) application live https://{sample-quarkus-heroku}.herokuapp.com[here]. (You might have to wait for about thirty seconds, the time required for Heroku to wake up the application, if it is https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping[asleep] at the time you click.)
 
