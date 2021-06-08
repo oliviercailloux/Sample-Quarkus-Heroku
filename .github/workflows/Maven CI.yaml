@@ -1,0 +1,25 @@
+name: Maven CI workflow
+
+on: push
+
+jobs:
+  maven_ci:
+    name: Maven CI job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 16
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          key: maven-cache-${{ hashFiles('**/pom.xml') }}
+          restore-keys: maven-cache
+          path: ~/.m2/repository
+      - name: Maven
+        run: mvn -B verify
+
+
