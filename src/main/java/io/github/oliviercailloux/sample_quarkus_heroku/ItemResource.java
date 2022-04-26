@@ -4,6 +4,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.annotation.security.PermitAll;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -30,6 +31,7 @@ public class ItemResource {
 	ItemService itemS;
 
 	@GET
+	@PermitAll
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getItems() {
 		LOGGER.info("Running GET.");
