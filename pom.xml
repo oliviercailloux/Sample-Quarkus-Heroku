@@ -86,8 +86,8 @@
 				<version>3.0.0-M5</version>
 				<configuration>
 					<systemPropertyVariables>
+						<!-- https://github.com/eclipse-m2e/m2e-core/issues/174 -->
 						<java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-						<maven.home>${maven.home}</maven.home>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>
